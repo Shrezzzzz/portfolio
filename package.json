@@ -1,7 +1,7 @@
 {
-  "name": "creative-engineer-portfolio",
+  "name": "cse-portfolio",
   "version": "1.0.0",
-  "description": "Creative Engineer Portfolio website with modular CSS and JS",
+  "description": "CSE Portfolio website with modular CSS and JS",
   "main": "index.html",
   "scripts": {
     "dev": "vite",
