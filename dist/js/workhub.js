@@ -117,7 +117,7 @@ const projects = {
       ${buildActions({
         github:   'https://github.com/Shrezzzzz/ZeroShield-AI',
         linkedin: 'https://www.linkedin.com/posts/shreya-chowdhury-b81988293_powerpuffgirls-nationalfinalist-unstop-activity-7466202407136485376-Qd_w',
-        demo:     '',
+        demo:     'https://zero-shield-ai.vercel.app/',
         youtube:  'https://youtu.be/KWsmJgv7vKU',
       })}
     </div>
