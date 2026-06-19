@@ -9,14 +9,8 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
 <!-- Modular CSS imports -->
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/navigation.css">
-<link rel="stylesheet" href="css/hero.css">
-<link rel="stylesheet" href="css/sections.css">
-<link rel="stylesheet" href="css/lab.css">
-<link rel="stylesheet" href="css/projects.css">
-<link rel="stylesheet" href="css/animations.css">
-<link rel="stylesheet" href="css/responsive.css">
+  <script type="module" crossorigin src="/assets/index-CAC1XRme.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BhnyMAES.css">
 </head>
 <body>
 
@@ -27,10 +21,11 @@
 
 <!-- ═══ NAV ═══ -->
 <nav id="mainNav">
-  <a href="#hero" class="nLogo">SHREYA CHOWDHURY|</a>
+  <a href="#hero" class="nLogo">SHREYA CHOWDHURY</a>
   <ul class="nLinks">
     <li><a href="#workHub" class="mag">Work</a></li>
     <li><a href="#lab" class="mag">Experience</a></li>
+    <li><a href="#cap" class="mag">Skills</a></li>
     <li><a href="#about" class="mag">About</a></li>
     <li><a href="#contact" class="mag">Contact</a></li>
   </ul>
@@ -47,12 +42,50 @@
     <span>BASE <em>KOLKATA, INDIA</em></span>
   </div>
 
-  <h1 class="hHead">
-    <span class="hLine">CREATIVE</span>
-    <span class="hLine">ENGINEER</span>
-    <span class="hLine">BUILDING</span>
-    <span class="hLine">Intelligent Systems.</span>
-  </h1>
+  <!-- ── Kali Terminal — replaces hHead, occupies 'head' grid area ── -->
+  <div class="kTerm" id="kTerm" aria-hidden="true">
+    <!-- Title bar -->
+    <div class="kTerm-bar">
+      <div class="kTerm-bar-left">
+        <span class="kTerm-icon">
+          <img src="/assets/terminal-logo-DBo_VYB1.png" alt="" draggable="false" width="16" height="16">
+        </span>
+      </div>
+      <div class="kTerm-bar-title">shreya㉿portfolio: ~</div>
+      <div class="kTerm-bar-controls">
+        <span class="kTerm-btn kTerm-btn--min"></span>
+        <span class="kTerm-btn kTerm-btn--max"></span>
+        <span class="kTerm-btn kTerm-btn--close">✕</span>
+      </div>
+    </div>
+    <!-- Menu bar -->
+    <div class="kTerm-menu">
+      <span>Session</span>
+      <span>Actions</span>
+      <span>Edit</span>
+      <span>View</span>
+      <span>Help</span>
+    </div>
+    <!-- Screen -->
+    <div class="kTerm-screen">
+      <!-- Kali watermark — inline SVG (dragon + KALI box) -->
+      <div class="kTerm-watermark" aria-hidden="true">
+        <div class="kTerm-wm-dragon">
+          <img src="/assets/kali-logo-DFc5xfUw.png" alt="" draggable="false">
+        </div>
+        <div class="kTerm-wm-kali">
+          <svg viewBox="0 0 420 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="8" width="404" height="164" rx="6" stroke="currentColor" stroke-width="6" fill="none"/>
+            <text x="212" y="132" font-family="'JetBrains Mono','Fira Code',monospace" font-size="110" font-weight="700" fill="currentColor" text-anchor="middle" letter-spacing="8">KALI</text>
+          </svg>
+        </div>
+      </div>
+      <!-- Terminal output — injected by JS -->
+      <div class="kTerm-output" id="kTermOutput"></div>
+      <!-- Cursor -->
+      <span class="kTerm-cursor" id="kTermCursor"></span>
+    </div>
+  </div>
 
   <div class="hBot">
     <p class="hCopy">
@@ -108,6 +141,7 @@
     </div>
   </div>
   <div class="hScroll">Scroll</div>
+
 </section>
 
 <!-- ═══ ABOUT ═══ -->
@@ -117,11 +151,11 @@
   <!-- Row 1: headline (left) + photo (right) — UNCHANGED -->
   <div class="identityLayout">
     <div class="identityHeadline">
-      <h2 class="aboutStatement">I BUILD SYSTEMS<br>THAT <i>THINK,</i> RESPOND,<br>&amp; INTERACT.</h2>
+      <h2 class="aboutStatement">Hi! I BUILD SYSTEMS<br>THAT <i>THINK,</i> RESPOND,<br>&amp; INTERACT.</h2>
     </div>
     <div class="identityImage">
       <div class="aboutImgContainer mag">
-        <img src="assets/images/me.jpeg" alt="Shreya Chowdhury" id="profileImg">
+        <img src="/assets/me-Drl3a6vQ.jpeg" alt="Shreya Chowdhury" id="profileImg">
       </div>
     </div>
   </div>
@@ -982,7 +1016,9 @@
 
 <!-- ═══ CAPABILITIES ═══ -->
 <section id="cap">
-  <div class="sLabel">SKILLs</div>
+ <div class="workHead">
+    <h2 class="rv">SKILLs</h2>
+  </div>
   <div class="capMatrix rv">
     <div class="capHRow"><div class="capHCell">Domain</div><div class="capHCell">Stack / Tools</div></div>
 
@@ -1124,13 +1160,13 @@
         <span>INTELLIGENT.</span>
       </h2>
 
-      <form class="ctForm rv2" id="ctForm" novalidate>
+      <form class="ctForm rv2" id="ctForm" novalidate autocomplete="off">
         <div class="ctFormRow">
           <div class="ctField">
-            <input class="ctInput mag" type="text" name="name" id="ctName" placeholder="YOUR NAME" autocomplete="name" required>
+            <input class="ctInput mag" type="text" name="ct-name" id="ctName" placeholder="YOUR NAME" autocomplete="off" spellcheck="false">
           </div>
           <div class="ctField">
-            <input class="ctInput mag" type="email" name="email" id="ctEmail" placeholder="YOUR EMAIL" autocomplete="email" required>
+            <input class="ctInput mag" type="email" name="ct-email" id="ctEmail" placeholder="YOUR EMAIL" autocomplete="off" spellcheck="false">
             <span class="ctEmailError" id="ctEmailError" role="alert" aria-live="polite">
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
               <span id="ctEmailErrorText">Invalid email address</span>
@@ -1138,10 +1174,10 @@
           </div>
         </div>
         <div class="ctField">
-          <input class="ctInput mag" type="text" name="subject" id="ctSubject" placeholder="SUBJECT" autocomplete="off" required>
+          <input class="ctInput mag" type="text" name="ct-subject" id="ctSubject" placeholder="SUBJECT" autocomplete="off" spellcheck="false">
         </div>
         <div class="ctField">
-          <textarea class="ctInput ctTextarea mag" name="message" id="ctMsg" placeholder="YOUR MESSAGE..." rows="5" required></textarea>
+          <textarea class="ctInput ctTextarea mag" name="ct-message" id="ctMsg" placeholder="YOUR MESSAGE..." rows="5" autocomplete="off" spellcheck="false"></textarea>
         </div>
         <button type="submit" class="ctSubmit mag" id="ctSubmitBtn">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
@@ -1212,6 +1248,11 @@
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           System Online · Kolkata, India
         </div>
+
+        <div class="ctOpenTo">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Open to opportunities in Bangalore, Kolkata, Pune, and Goa.
+        </div>
       </div>
     </div>
 
@@ -1239,14 +1280,14 @@
     <!-- Col 2: Navigation -->
     <div class="ftNav">
       <div class="ftNavLabel">Navigation</div>
-      <nav aria-label="Footer navigation">
+      <div class="ftNavLinks">
         <a href="#workHub" class="ftNavLink mag">Work</a>
         <a href="#lab" class="ftNavLink mag">Experience</a>
         <a href="#about" class="ftNavLink mag">About</a>
         <a href="#cap" class="ftNavLink mag">Skills</a>
         <a href="#workHub" class="ftNavLink mag">Projects</a>
         <a href="#contact" class="ftNavLink mag">Contact</a>
-      </nav>
+      </div>
     </div>
 
     <!-- Col 3: Connect -->
@@ -1288,6 +1329,5 @@
 <!-- EmailJS SDK -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <!-- Orchestrator Script -->
-<script src="js/main.js" defer></script>
 </body>
 </html>
