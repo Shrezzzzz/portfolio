@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shreya Chowdhury — Creative Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Modular CSS imports -->
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/navigation.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/lab.css">
+<link rel="stylesheet" href="css/projects.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="C"></div>
+<div id="CR"></div>
+
+
+<!-- ═══ NAV ═══ -->
+<nav id="mainNav">
+  <a href="#hero" class="nLogo">SHREYA CHOWDHURY</a>
+  <ul class="nLinks">
+    <li><a href="#workHub" class="mag">Work</a></li>
+    <li><a href="#lab" class="mag">Experience</a></li>
+    <li><a href="#cap" class="mag">Skills</a></li>
+    <li><a href="#about" class="mag">About</a></li>
+    <li><a href="#contact" class="mag">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <canvas id="heroCanvas"></canvas>
+
+  <div class="hMeta">
+    <span>STATUS <em>ONLINE</em></span>
+    <span>FIELD <em>CREATIVE ENGINEERING</em></span>
+    <span>YEAR <em>2026</em></span>
+    <span>BASE <em>KOLKATA, INDIA</em></span>
+  </div>
+
+  <!-- ── Kali Terminal — replaces hHead, occupies 'head' grid area ── -->
+  <div class="kTerm" id="kTerm" aria-hidden="true">
+    <!-- Title bar -->
+    <div class="kTerm-bar">
+      <div class="kTerm-bar-left">
+        <span class="kTerm-icon">
+          <img src="assets/images/terminal-logo.png" alt="" draggable="false" width="16" height="16">
+        </span>
+      </div>
+      <div class="kTerm-bar-title">shreya㉿portfolio: ~</div>
+      <div class="kTerm-bar-controls">
+        <span class="kTerm-btn kTerm-btn--min"></span>
+        <span class="kTerm-btn kTerm-btn--max"></span>
+        <span class="kTerm-btn kTerm-btn--close">✕</span>
+      </div>
+    </div>
+    <!-- Menu bar -->
+    <div class="kTerm-menu">
+      <span>Session</span>
+      <span>Actions</span>
+      <span>Edit</span>
+      <span>View</span>
+      <span>Help</span>
+    </div>
+    <!-- Screen -->
+    <div class="kTerm-screen">
+      <!-- Kali watermark — inline SVG (dragon + KALI box) -->
+      <div class="kTerm-watermark" aria-hidden="true">
+        <div class="kTerm-wm-dragon">
+          <img src="assets/images/kali-logo.png" alt="" draggable="false">
+        </div>
+        <div class="kTerm-wm-kali">
+          <svg viewBox="0 0 420 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="8" width="404" height="164" rx="6" stroke="currentColor" stroke-width="6" fill="none"/>
+            <text x="212" y="132" font-family="'JetBrains Mono','Fira Code',monospace" font-size="110" font-weight="700" fill="currentColor" text-anchor="middle" letter-spacing="8">KALI</text>
+          </svg>
+        </div>
+      </div>
+      <!-- Terminal output — injected by JS -->
+      <div class="kTerm-output" id="kTermOutput"></div>
+      <!-- Cursor -->
+      <span class="kTerm-cursor" id="kTermCursor"></span>
+    </div>
+  </div>
+
+  <div class="hBot">
+    <p class="hCopy">
+      Design-minded developer exploring cybersecurity, intelligent systems, blockchain architectures, embedded hardware, and interaction-driven technology. Building at the edge of engineering logic and emerging digital experience.
+    </p>
+  </div>
+
+  <div class="hBotRight">
+    <a href="#lab" id="heroBtnLab2" class="btnG mag">View Experience</a>
+  </div>
+
+  <div class="hCtas">
+    <div class="hBtnGrid">
+
+      <!-- Row 1 — right (primary) -->
+      <div class="hBtnRow">
+        <a href="#workHub" id="heroBtnViewProjects" class="hBtn hBtn--primary mag">
+          View Projects <span class="hBtnArrow">→</span>
+        </a>
+      </div>
+
+      <!-- Row 2 — left (ghost) -->
+      <div class="hBtnRow">
+        <a href="https://github.com/Shrezzzzz" target="_blank" rel="noopener" class="hBtn hBtn--ghost mag">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          GitHub
+        </a>
+      </div>
+
+      <!-- Row 3 — right (ghost) -->
+      <div class="hBtnRow">
+        <a href="#contact" id="heroBtnContact" class="hBtn hBtn--ghost mag">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+          Contact
+        </a>
+      </div>
+
+      <!-- Row 4 — left (ghost) -->
+      <div class="hBtnRow">
+        <a href="/resume/Shreya_Chowdhury_Resume.pdf" target="_blank" rel="noopener" class="hBtn hBtn--ghost mag">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>
+          Resume
+        </a>
+      </div>
+
+      <!-- Row 5 — right (primary) -->
+      <div class="hBtnRow">
+        <a href="#contact" id="heroBtnHireMe" class="hBtn hBtn--primary mag">
+          Hire Me
+        </a>
+      </div>
+
+    </div>
+  </div>
+  <div class="hScroll">Scroll</div>
+
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="sLabel">Identity System</div>
+
+  <!-- Row 1: headline (left) + photo (right) — UNCHANGED -->
+  <div class="identityLayout">
+    <div class="identityHeadline">
+      <h2 class="aboutStatement">Hi! I BUILD SYSTEMS<br>THAT <i>THINK,</i> RESPOND,<br>&amp; INTERACT.</h2>
+    </div>
+    <div class="identityImage">
+      <div class="aboutImgContainer mag">
+        <img src="assets/images/me.jpeg" alt="Shreya Chowdhury" id="profileImg">
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 2: lower half — NEW LAYOUT -->
+  <div class="aboutLower">
+
+    <!-- Left column: Profile bio + Technical tags -->
+    <div class="aboutLowerLeft">
+
+      <div class="bioBlock rv">
+        <div class="bioRunningHead">// PROFILE</div>
+        <p class="bioParagraph">My work exists between engineering, emerging technology, cybersecurity exploration,
+          interactive systems, and digital experimentation. Currently a CSE undergraduate at Sister Nivedita
+          University, Kolkata — CGPA 8.56 — building at the intersection of software logic and creative
+          engineering identity.</p>
+        <p class="bioParagraph">From AWS DevOps internships to 36-hour hackathons, from hardware embedded systems to
+          blockchain trust protocols — each project is an experiment in how technology can behave more
+          intelligently.</p>
+      </div>
+
+      <div class="bioTagsBlock rv2">
+        <div class="bioTagsLabel">Technical Focus</div>
+        <div class="capTags">
+          <span class="capTag">Cyber</span>
+          <span class="capTag">AI / ML</span>
+          <span class="capTag">IoT</span>
+          <span class="capTag">Blockchain</span>
+          <span class="capTag">System Design</span>
+          <span class="capTag">Interaction</span>
+          <span class="capTag">Cloud</span>
+          <span class="capTag">Research</span>
+          <span class="capTag">Automation</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right column: floating Languages panel -->
+    <div class="aboutLowerRight">
+      <div class="langPanel rv2">
+        <div class="bioRunningHead">// LANGUAGES</div>
+        <div class="langGrid">
+          <div class="langItem">
+            <div class="langName">Bengali</div>
+            <div class="langLevel langLevel--native">Native</div>
+            <div class="langSkills"><span>Read</span><span>Speak</span><span>Write</span></div>
+          </div>
+          <div class="langItem">
+            <div class="langName">English</div>
+            <div class="langLevel langLevel--fluent">Fluent</div>
+            <div class="langSkills"><span>Read</span><span>Speak</span><span>Write</span></div>
+          </div>
+          <div class="langItem">
+            <div class="langName">Hindi</div>
+            <div class="langLevel langLevel--fluent">Fluent</div>
+            <div class="langSkills"><span>Read</span><span>Speak</span><span>Write</span></div>
+          </div>
+          <div class="langItem langItem--foreign">
+            <div class="langName">French</div>
+            <div class="langLevel langLevel--studied">Studied</div>
+            <div class="langNote">Two semesters. Still deploying one confused <em>bonjour</em> at a time.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /aboutLower -->
+
+  <!-- Academic cards — full-width below both columns -->
+  <div class="aboutAcademic rv">
+    <div class="bioRunningHead">// ACADEMIC</div>
+    <div class="acadGrid">
+
+      <!-- Card 1: B.Tech -->
+      <div class="acadCard">
+        <div class="acadCardMeta">
+          <div class="acadYear">2023 – 2027</div>
+          <div class="acadLocation">Kolkata, IN</div>
+          <div class="acadStatus acadStatus--active">ACTIVE</div>
+        </div>
+        <div class="acadCardBody">
+          <div class="acadCardBreadcrumb">ACADEMIC &middot; COMPUTER SCIENCE</div>
+          <h3 class="acadInstitution">Sister Nivedita University</h3>
+          <div class="acadDegree">B.Tech — Computer Science &amp; Engineering</div>
+          <div class="acadMeta2">
+            Kolkata, West Bengal
+            <span class="eduGpa">CGPA 8.56</span>
+          </div>
+          <p class="acadDesc">Core study across Data Structures &amp; Algorithms, Web Development, Database
+            Management, Operating Systems, and Computer Architecture. Active participant in tech events,
+            workshops, hackathons, and community initiatives across cloud, AI/ML, and emerging tech domains.</p>
+          <div class="eduCourseChips">
+            <span>DSA</span><span>Web Dev</span><span>DBMS</span><span>OS</span>
+            <span>Computer Architecture</span><span>C</span><span>Python</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Higher Secondary -->
+      <div class="acadCard">
+        <div class="acadCardMeta">
+          <div class="acadYear">2007 – 2023</div>
+          <div class="acadLocation">Kolkata, IN</div>
+          <div class="acadStatus acadStatus--done">COMPLETED</div>
+        </div>
+        <div class="acadCardBody">
+          <div class="acadCardBreadcrumb">ACADEMIC &middot; SCIENCE &middot; GOVT. INSTITUTION</div>
+          <h3 class="acadInstitution">Andrew’s High School (H.S)</h3>
+          <div class="acadDegree">Higher Secondary — Science, Class XI–XII</div>
+          <div class="acadMeta2">
+            Government School, Kolkata
+            <span class="eduBoard">WBCHSE</span>
+          </div>
+          <p class="acadDesc">Completed the full arc of school life from Nursery through Class XII at this
+            government institution. Sixteen years of academic foundation, friendships, and formative milestones.</p>
+          <p class="acadDesc">In Class XI &amp; XII, pursued <b>Pure Science</b> — Physics, Chemistry, Mathematics,
+            and Biology, with English and Bengali as compulsory languages. A rigorous science stream that laid
+            the groundwork for engineering and research thinking.</p>
+          <div class="eduCourseChips">
+            <span>Physics</span><span>Chemistry</span><span>Mathematics</span>
+            <span>Biology</span><span>English</span><span>Bengali</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /acadGrid -->
+  </div><!-- /aboutAcademic -->
+
+</section>
+
+<!-- ═══ FUN FACTS ═══ -->
+<section id="funfacts">
+  <div class="sLabel">Runtime Logs</div>
+  <div class="ffHead rv">
+    <h2 class="ffTitle">Fun Facts <span>// About Me</span></h2>
+  </div>
+  <div class="ffGrid">
+
+    <div class="ffCard rv" data-index="1">
+      <div class="ffCardTop">
+        <span class="ffNum">01</span>
+        <span class="ffTag ffTag--cyan">FUEL</span>
+      </div>
+      <p class="ffText">My code runs on tea. No tea = no commits. It’s in my system requirements.</p>
+    </div>
+
+    <div class="ffCard rv" data-index="2">
+      <div class="ffCardTop">
+        <span class="ffNum">02</span>
+        <span class="ffTag ffTag--amber">DEBUG MODE</span>
+      </div>
+      <p class="ffText">I spend 10 mins writing code and 3 hours figuring out why it worked.</p>
+    </div>
+
+    <div class="ffCard rv" data-index="3">
+      <div class="ffCardTop">
+        <span class="ffNum">03</span>
+        <span class="ffTag ffTag--purple">MULTI-DOMAIN</span>
+      </div>
+      <p class="ffText">I speak C++, Python, React, and Cloud — basically a human API with too many endpoints.</p>
+    </div>
+
+    <div class="ffCard rv" data-index="4">
+      <div class="ffCardTop">
+        <span class="ffNum">04</span>
+        <span class="ffTag ffTag--green">SECURITY</span>
+      </div>
+      <p class="ffText">I build cybersecurity tools by day and forget my own passwords by night.</p>
+    </div>
+
+    <div class="ffCard rv" data-index="5">
+      <div class="ffCardTop">
+        <span class="ffNum">05</span>
+        <span class="ffTag ffTag--cyan">IoT LIFE</span>
+      </div>
+      <p class="ffText">I once built a car that doesn’t fall off edges. My code, however, falls off constantly.</p>
+    </div>
+
+    <div class="ffCard rv" data-index="6">
+      <div class="ffCardTop">
+        <span class="ffNum">06</span>
+        <span class="ffTag ffTag--amber">LEARNER</span>
+      </div>
+      <p class="ffText">Pursuing B.Tech at SNU, Kolkata — CGPA 8.56 and still Googling how to center a div.</p>
+    </div>
+
+    <div class="ffCard rv" data-index="7">
+      <div class="ffCardTop">
+        <span class="ffNum">07</span>
+        <span class="ffTag ffTag--purple">HACKATHON</span>
+      </div>
+      <p class="ffText">I thrive on deadlines. Sleep is just a background process I pause during hackathons.</p>
+    </div>
+
+    <div class="ffCard rv" data-index="8">
+      <div class="ffCardTop">
+        <span class="ffNum">08</span>
+        <span class="ffTag ffTag--green">AI ERA</span>
+      </div>
+      <p class="ffText">I study GenAI and NLP so I can automate the boring parts — starting with bug-free code (wishful thinking).</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ PROJECTs ═══ -->
+<section id="workHub">
+
+  <div class="sLabel">Work Ecosystem</div>
+
+  <div class="workHead">
+    <h2 class="rv">Domains</h2>
+    <p class="rv2">Hover to explore. Select to enter.</p>
+  </div>
+
+  <!-- Ambient background layer -->
+  <div class="domainAmbient" id="domainAmbient">
+    <canvas id="domainCanvas"></canvas>
+  </div>
+
+  <!-- Domain strip -->
+  <div class="domainStrip" id="domainStrip">
+
+    <button class="domainPanel" data-domain="cyber" data-index="0">
+      <div class="dpGlow"></div>
+      <div class="dpBorder"></div>
+      <canvas class="dpViz" width="200" height="120"></canvas>
+      <div class="dpContent">
+        <div class="dpNum">01</div>
+        <h3 class="dpTitle">Cyber<br>security</h3>
+        <div class="dpSub">Threat Intelligence · Behavioral Defense</div>
+        <div class="dpTag">ACTIVE DOMAIN</div>
+      </div>
+      <div class="dpExpand">
+        <span>Enter Domain</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
+      </div>
+    </button>
+
+    <button class="domainPanel" data-domain="aiml" data-index="1">
+      <div class="dpGlow"></div>
+      <div class="dpBorder"></div>
+      <canvas class="dpViz" width="200" height="120"></canvas>
+      <div class="dpContent">
+        <div class="dpNum">02</div>
+        <h3 class="dpTitle">AI /<br>ML</h3>
+        <div class="dpSub">Neural Systems · Predictive Modeling</div>
+        <div class="dpTag">ACTIVE DOMAIN</div>
+      </div>
+      <div class="dpExpand">
+        <span>Enter Domain</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
+      </div>
+    </button>
+
+    <button class="domainPanel" data-domain="iot" data-index="2">
+      <div class="dpGlow"></div>
+      <div class="dpBorder"></div>
+      <canvas class="dpViz" width="200" height="120"></canvas>
+      <div class="dpContent">
+        <div class="dpNum">03</div>
+        <h3 class="dpTitle">IoT</h3>
+        <div class="dpSub">Embedded Systems · Sensor Networks</div>
+        <div class="dpTag">ACTIVE DOMAIN</div>
+      </div>
+      <div class="dpExpand">
+        <span>Enter Domain</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
+      </div>
+    </button>
+
+    <button class="domainPanel" data-domain="blockchain" data-index="3">
+      <div class="dpGlow"></div>
+      <div class="dpBorder"></div>
+      <canvas class="dpViz" width="200" height="120"></canvas>
+      <div class="dpContent">
+        <div class="dpNum">04</div>
+        <h3 class="dpTitle">Block<br>chain</h3>
+        <div class="dpSub">Decentralized Trust · Smart Contracts</div>
+        <div class="dpTag">ACTIVE DOMAIN</div>
+      </div>
+      <div class="dpExpand">
+        <span>Enter Domain</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
+      </div>
+    </button>
+
+    <button class="domainPanel" data-domain="fintech" data-index="4">
+      <div class="dpGlow"></div>
+      <div class="dpBorder"></div>
+      <canvas class="dpViz" width="200" height="120"></canvas>
+      <div class="dpContent">
+        <div class="dpNum">05</div>
+        <h3 class="dpTitle">Fin<br>Tech</h3>
+        <div class="dpSub">Financial Systems · Real-Time Settlements</div>
+        <div class="dpTag">ACTIVE DOMAIN</div>
+      </div>
+      <div class="dpExpand">
+        <span>Enter Domain</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
+      </div>
+    </button>
+
+  </div>
+
+  <!-- Project reveal zone -->
+  <div id="projectContainer" class="projectReveal"></div>
+
+</section>
+<!-- ═══ LAB ═══ -->
+<section id="lab">
+
+  <!-- ── Layer 00: Section Identity ── -->
+  <div class="sLabel">Active Research Layer</div>
+
+  <div class="labHero">
+    <div class="labHeroLeft">
+      <h2 class="labTitle rv">Experience</h2>
+      <p class="labIntro rv2">Ongoing experiments, interaction concepts, system sketches, certifications, and field records. This is where the work behind the projects happened.</p>
+    </div>
+    <div class="labStats rv2">
+      <div class="labStat">
+        <span class="labStatN" data-target="12">0</span>
+        <span class="labStatL">Certifications</span>
+      </div>
+      <div class="labStat">
+        <span class="labStatN" data-target="6">0</span>
+        <span class="labStatL">National Hackathons</span>
+      </div>
+      <div class="labStat">
+        <span class="labStatN" data-target="2">0</span>
+        <span class="labStatL">Internship</span>
+      </div>
+      <div class="labStat">
+        <span class="labStatN" data-target="3">0</span>
+        <span class="labStatL">Technical Domains</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Layer 01: Experience Archive (Lab Records) ── -->
+  <div class="labLayer">
+    <div class="labLayerHeader rv">
+      <span class="labLayerCode">LAYER — 01</span>
+      <span class="labLayerName">Experience Archive</span>
+    </div>
+
+    <div class="labRecords">
+
+      <div class="labRecord rv">
+        <div class="labRecordSide">
+          <div class="labRecordId">LAB REC — 001</div>
+          <div class="labRecordYear">2025</div>
+          <div class="labRecordDuration">3 Months</div>
+          <div class="labRecordStatus labRecordStatus--active">COMPLETED</div>
+        </div>
+        <div class="labRecordMain">
+          <div class="labRecordCategory">INTERNSHIP · CLOUD INFRASTRUCTURE</div>
+          <h3 class="labRecordTitle">AWS DevOps Engineer</h3>
+          <div class="labRecordOrg">Employability.life</div>
+          <p class="labRecordDesc">Deployed applications on Linux servers using AWS EC2, S3, and IAM. Practiced Git-based CI/CD workflows and monitored cloud infrastructure logs and performance metrics in a live production environment. Operated across the full DevOps lifecycle in a production-grade system.</p>
+          <div class="labRecordTags">
+            <span>AWS EC2</span><span>S3</span><span>IAM</span>
+            <span>Linux</span><span>CI/CD</span><span>Cloud Monitoring</span>
+          </div>
+        </div>
+        <div class="labRecordGlow"></div>
+      </div>
+
+      <div class="labRecord rv">
+        <div class="labRecordSide">
+          <div class="labRecordId">LAB REC — 002</div>
+          <div class="labRecordYear">2026</div>
+          <div class="labRecordDuration">2 Weeks</div>
+          <div class="labRecordStatus labRecordStatus--active">COMPLETED</div>
+        </div>
+        <div class="labRecordMain">
+          <div class="labRecordCategory">INTERNSHIP · Prompt Analyst</div>
+          <h3 class="labRecordTitle">Al Image-Prompt Evaluator</h3>
+          <div class="labRecordOrg">RT Network Solutions Pvt Ltd  <span class="labRecordGpa">SALT LAKE, KOLKATA</span></div>
+          <p class="labRecordDesc">Evaluated and analyzed AI-generated image outputs against structured prompts for quality, accuracy, and alignment. Contributed to model feedback pipelines by identifying prompt-output inconsistencies and documenting evaluation criteria in a production Al environment..</p>
+          <div class="labRecordTags">
+            <span>AI EVALUATION</span><span>PROMPT ENGINEERING</span><span>IMAGE ANALYSIS</span>
+            <span>QUALITY ASSURANCE</span><span>GEN AI</span>
+          </div>
+        </div>
+        <div class="labRecordGlow"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Layer 02: Achievement Vault ── -->
+  <div class="labLayer">
+    <div class="labLayerHeader rv">
+      <span class="labLayerCode">LAYER — 02</span>
+      <span class="labLayerName">Achievement Vault</span>
+    </div>
+
+    <div class="labVault">
+
+      <div class="vaultRecord rv" data-clearance="NATIONAL">
+        <div class="vaultTop">
+          <span class="vaultClearance">CLEARANCE — NATIONAL FINALIST</span>
+          <span class="vaultYear">2025</span>
+        </div>
+        <h4 class="vaultTitle">National Cloud Innovation Challenge</h4>
+        <div class="vaultRank">RANK #16</div>
+        <p class="vaultDesc">Placed 16th nationally. Top 150 among 1400+ participants. Category: Cloud Infrastructure & DevOps engineering.</p>
+        <div class="vaultMeta">
+          <span class="vaultCat">Cloud Infrastructure</span>
+          <span class="vaultStat">Top 150 / 1400+</span>
+        </div>
+        <a href="https://www.linkedin.com/posts/shreya-chowdhury-b81988293_powerpuffgirls-nationalfinalist-unstop-activity-7466202407136485376-Qd_w" target="_blank" rel="noopener" class="vaultLinkedIn mag" aria-label="View on LinkedIn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          View on LinkedIn
+        </a>
+        <div class="vaultGlow"></div>
+      </div>
+
+      <div class="vaultRecord rv" data-clearance="TOP 5000">
+        <div class="vaultTop">
+          <span class="vaultClearance">CLEARANCE — NATIONAL FINALIST</span>
+          <span class="vaultYear">2025</span>
+        </div>
+        <h4 class="vaultTitle">Build With India</h4>
+        <div class="vaultRank">TOP 5000</div>
+        <p class="vaultDesc">Selected among Top 5000 nationally in India's largest student hackathon. Demonstrated systems-level engineering under national competition conditions.</p>
+        <div class="vaultMeta">
+          <span class="vaultCat">Full-Stack Systems</span>
+          <span class="vaultStat">National Scale</span>
+        </div>
+        <a href="https://www.linkedin.com/posts/shreya-chowdhury-b81988293_buildwithindia-hackwithindia-innovation-activity-7313120857336242176-XhEe" target="_blank" rel="noopener" class="vaultLinkedIn mag" aria-label="View on LinkedIn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          View on LinkedIn
+        </a>
+        <div class="vaultGlow"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Layer 03: Hackathon Timeline (Mission Control) ── -->
+  <div class="labLayer">
+    <div class="labLayerHeader rv">
+      <span class="labLayerCode">LAYER — 03</span>
+      <span class="labLayerName">Mission Timeline</span>
+    </div>
+
+    <div class="tlWrap rv">
+
+      <!-- Vertical spine -->
+      <div class="tlSpine" aria-hidden="true"></div>
+
+      <!-- ── 2025 ── -->
+      <div class="tlYearGroup">
+        <div class="tlYearMarker">
+          <span class="tlYearLabel">// 2025</span>
+          <div class="tlYearLine"></div>
+        </div>
+
+        <!-- Event 01 -->
+        <div class="tlEvent" data-index="0">
+          <div class="tlNodeCol" aria-hidden="true">
+            <div class="tlDot"></div>
+            <div class="tlRing"></div>
+          </div>
+          <div class="tlCard" role="button" tabindex="0" aria-expanded="false">
+            <div class="tlCardTop">
+              <span class="tlMission">MISSION 01</span>
+              <div class="tlBadges">
+                <span class="tlBadge">COMPETED</span>
+                <span class="tlBadge tlBadge--def">ONLINE</span>
+              </div>
+            </div>
+            <h4 class="tlName">Build With India</h4>
+            <div class="tlHost">Unstop</div>
+            <div class="tlMeta">
+              <span class="tlMetaChip">8 Mar 2025</span>
+              <span class="tlMetaChip">Online</span>
+            </div>
+            <div class="tlDetail" aria-hidden="true">
+              <p class="tlDesc">National online buildathon. Competed with a full-stack project concept, engaging with India's developer community across domains.</p>
+              <div class="tlTech">
+                <span>Full Stack</span><span>System Design</span><span>Cloud</span>
+              </div>
+            </div>
+            <div class="tlToggle" aria-hidden="true">
+              <span class="tlToggleLabel">Expand</span>
+              <svg class="tlToggleIcon" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 02 -->
+        <div class="tlEvent" data-index="1">
+          <div class="tlNodeCol" aria-hidden="true">
+            <div class="tlDot"></div>
+            <div class="tlRing"></div>
+          </div>
+          <div class="tlCard" role="button" tabindex="0" aria-expanded="false">
+            <div class="tlCardTop">
+              <span class="tlMission">MISSION 02</span>
+              <div class="tlBadges">
+                <span class="tlBadge tlBadge--cyan">COMPETED</span>
+                <span class="tlBadge tlBadge--def">OFFLINE</span>
+              </div>
+            </div>
+            <h4 class="tlName">BINARY KGEC v1</h4>
+            <div class="tlHost">Kalyani Government Engineering College</div>
+            <div class="tlMeta">
+              <span class="tlMetaChip">29–30 Mar 2025</span>
+              <span class="tlMetaChip">Offline</span>
+            </div>
+            <div class="tlDetail" aria-hidden="true">
+              <p class="tlDesc">Institute-level offline hackathon at KGEC. Applied rapid prototyping across blockchain and AI domains under intense time pressure.</p>
+              <div class="tlTech">
+                <span>Blockchain</span><span>AI/ML</span><span>Rapid Prototype</span><span>React</span>
+              </div>
+            </div>
+            <div class="tlToggle" aria-hidden="true">
+              <span class="tlToggleLabel">Expand</span>
+              <svg class="tlToggleIcon" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 03 -->
+        <div class="tlEvent" data-index="2">
+          <div class="tlNodeCol" aria-hidden="true">
+            <div class="tlDot"></div>
+            <div class="tlRing"></div>
+          </div>
+          <div class="tlCard" role="button" tabindex="0" aria-expanded="false">
+            <div class="tlCardTop">
+              <span class="tlMission">MISSION 03</span>
+              <div class="tlBadges">
+                <span class="tlBadge tlBadge--cyan">DEPLOYED</span>
+                <span class="tlBadge tlBadge--def">36 HR BUILD</span>
+              </div>
+            </div>
+            <h4 class="tlName">StatusCode2</h4>
+            <div class="tlHost">IIIT Kalyani · IISER Kolkata</div>
+            <div class="tlMeta">
+              <span class="tlMetaChip">23–24 Aug 2025</span>
+              <span class="tlMetaChip">Offline</span>
+            </div>
+            <div class="tlDetail" aria-hidden="true">
+              <p class="tlDesc">36-hour sprint. Zero to deployed product. Built SplitX — a full-stack group expense tracker — from concept to live Vercel deployment in a single session.</p>
+              <div class="tlTech">
+                <span>React Native</span><span>Node.js</span><span>MongoDB</span><span>Vercel</span>
+              </div>
+            </div>
+            <div class="tlToggle" aria-hidden="true">
+              <span class="tlToggleLabel">Expand</span>
+              <svg class="tlToggleIcon" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /2025 -->
+
+      <!-- ── 2026 ── -->
+      <div class="tlYearGroup">
+        <div class="tlYearMarker">
+          <span class="tlYearLabel">// 2026</span>
+          <div class="tlYearLine"></div>
+        </div>
+
+        <!-- Event 04 -->
+        <div class="tlEvent" data-index="3">
+          <div class="tlNodeCol" aria-hidden="true">
+            <div class="tlDot"></div>
+            <div class="tlRing"></div>
+          </div>
+          <div class="tlCard" role="button" tabindex="0" aria-expanded="false">
+            <div class="tlCardTop">
+              <span class="tlMission">MISSION 04</span>
+              <div class="tlBadges">
+                <span class="tlBadge tlBadge--purple">COMPETED</span>
+                <span class="tlBadge tlBadge--def">NATIONAL</span>
+              </div>
+            </div>
+            <h4 class="tlName">Diversion 2K26</h4>
+            <div class="tlHost">ACM-IEM</div>
+            <div class="tlMeta">
+              <span class="tlMetaChip">28–29 Feb 2026</span>
+              <span class="tlMetaChip">Offline</span>
+            </div>
+            <div class="tlDetail" aria-hidden="true">
+              <p class="tlDesc">National hackathon circuit. BlockVault — a decentralized reputation and trust protocol — developed and presented as a team engineering effort.</p>
+              <div class="tlTech">
+                <span>Blockchain</span><span>Polygon</span><span>Smart Contracts</span><span>Web3</span>
+              </div>
+            </div>
+            <div class="tlToggle" aria-hidden="true">
+              <span class="tlToggleLabel">Expand</span>
+              <svg class="tlToggleIcon" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 05 -->
+        <div class="tlEvent" data-index="4">
+          <div class="tlNodeCol" aria-hidden="true">
+            <div class="tlDot"></div>
+            <div class="tlRing"></div>
+          </div>
+          <div class="tlCard" role="button" tabindex="0" aria-expanded="false">
+            <div class="tlCardTop">
+              <span class="tlMission">MISSION 05</span>
+              <div class="tlBadges">
+                <span class="tlBadge tlBadge--gold">RANK #16</span>
+                <span class="tlBadge tlBadge--def">TOP 150 / 1400+</span>
+              </div>
+            </div>
+            <h4 class="tlName">National Cloud Innovation Challenge</h4>
+            <div class="tlHost">Unstop</div>
+            <div class="tlMeta">
+              <span class="tlMetaChip">15–25 Mar 2026</span>
+              <span class="tlMetaChip">Online</span>
+            </div>
+            <div class="tlDetail" aria-hidden="true">
+              <p class="tlDesc">Cloud infrastructure engineering challenge at national scale. Designed and deployed a DevOps-grade solution under competition constraints. Placed 16th nationally among 1400+ participants.</p>
+              <div class="tlTech">
+                <span>AWS</span><span>Linux</span><span>CI/CD</span><span>Cloud Monitoring</span>
+              </div>
+            </div>
+            <div class="tlToggle" aria-hidden="true">
+              <span class="tlToggleLabel">Expand</span>
+              <svg class="tlToggleIcon" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 06 -->
+        <div class="tlEvent" data-index="5">
+          <div class="tlNodeCol" aria-hidden="true">
+            <div class="tlDot"></div>
+            <div class="tlRing"></div>
+          </div>
+          <div class="tlCard" role="button" tabindex="0" aria-expanded="false">
+            <div class="tlCardTop">
+              <span class="tlMission">MISSION 06</span>
+              <div class="tlBadges">
+                <span class="tlBadge tlBadge--cyan">ACTIVE</span>
+                <span class="tlBadge tlBadge--gold">ONGOING</span>
+              </div>
+            </div>
+            <h4 class="tlName">AI Startup Buildathon</h4>
+            <div class="tlHost">Unstop</div>
+            <div class="tlMeta">
+              <span class="tlMetaChip">29 Mar – 28 Jun 2026</span>
+              <span class="tlMetaChip">Online</span>
+            </div>
+            <div class="tlDetail" aria-hidden="true">
+              <p class="tlDesc">Beauty Salon Marketplace Challenge — building an AI-powered startup product for the beauty industry. Long-form buildathon spanning 3 months.</p>
+              <div class="tlTech">
+                <span>GenAI</span><span>Product Design</span><span>React</span><span>Node.js</span><span>Marketplace</span>
+              </div>
+            </div>
+            <div class="tlToggle" aria-hidden="true">
+              <span class="tlToggleLabel">Expand</span>
+              <svg class="tlToggleIcon" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /2026 -->
+
+    </div><!-- /tlWrap -->
+  </div>
+
+  <!-- ── Layer 04: Certification Matrix ── -->
+  <div class="labLayer">
+    <div class="labLayerHeader rv">
+      <span class="labLayerCode">LAYER — 04</span>
+      <span class="labLayerName">Certification Matrix</span>
+    </div>
+
+    <div class="certMatrix rv">
+
+      <a class="certNode" href="https://www.coursera.org/account/accomplishments/verify/M27C6WOVONLG" target="_blank" rel="noopener">
+        <div class="certNodeHeader">
+          <span class="certNodeId">CERT — 01</span>
+          <span class="certNodeOrg">IBM · Coursera</span>
+        </div>
+        <div class="certNodeTitle">Generative AI: Introduction and Applications</div>
+        <div class="certNodeDomain certNodeDomain--green">AI · GenAI · LLMs</div>
+        <div class="certNodeBar"><div class="certNodeFill" style="--w:91%"></div></div>
+        <div class="certNodeVerify">Verify ↗</div>
+      </a>
+
+      <a class="certNode" href="https://www.coursera.org/account/accomplishments/verify/FFTQE67J486C" target="_blank" rel="noopener">
+        <div class="certNodeHeader">
+          <span class="certNodeId">CERT — 02</span>
+          <span class="certNodeOrg">Microsoft · Coursera</span>
+        </div>
+        <div class="certNodeTitle">Introduction to Computers and Operating Systems and Security</div>
+        <div class="certNodeDomain certNodeDomain--cyan">Security · OS Design</div>
+        <div class="certNodeBar"><div class="certNodeFill" style="--w:82%"></div></div>
+        <div class="certNodeVerify">Verify ↗</div>
+      </a>
+
+      <a class="certNode" href="https://www.coursera.org/account/accomplishments/verify/7N5V2D1YPSDX" target="_blank" rel="noopener">
+        <div class="certNodeHeader">
+          <span class="certNodeId">CERT — 03</span>
+          <span class="certNodeOrg">Illinois Tech · Coursera</span>
+        </div>
+        <div class="certNodeTitle">Hardware and Operating System Foundations III</div>
+        <div class="certNodeDomain certNodeDomain--amber">Hardware · Systems</div>
+        <div class="certNodeBar"><div class="certNodeFill" style="--w:78%"></div></div>
+        <div class="certNodeVerify">Verify ↗</div>
+      </a>
+
+      <a class="certNode" href="https://www.coursera.org/account/accomplishments/verify/KHZOOIO0H636" target="_blank" rel="noopener">
+        <div class="certNodeHeader">
+          <span class="certNodeId">CERT — 04</span>
+          <span class="certNodeOrg">Coursera</span>
+        </div>
+        <div class="certNodeTitle">Machine Learning and NLP Basics</div>
+        <div class="certNodeDomain certNodeDomain--green">ML · NLP · Scikit-Learn</div>
+        <div class="certNodeBar"><div class="certNodeFill" style="--w:85%"></div></div>
+        <div class="certNodeVerify">Verify ↗</div>
+      </a>
+
+      <a class="certNode" href="https://www.coursera.org/account/accomplishments/verify/YT138DXN6ZFY" target="_blank" rel="noopener">
+        <div class="certNodeHeader">
+          <span class="certNodeId">CERT — 05</span>
+          <span class="certNodeOrg">NTU · Coursera</span>
+        </div>
+        <div class="certNodeTitle">Operations Research (2)</div>
+        <div class="certNodeDomain certNodeDomain--purple">Optimization · Systems</div>
+        <div class="certNodeBar"><div class="certNodeFill" style="--w:75%"></div></div>
+        <div class="certNodeVerify">Verify ↗</div>
+      </a>
+
+      <a class="certNode" href="https://www.coursera.org/account/accomplishments/verify/364HNNPR9VYB" target="_blank" rel="noopener">
+        <div class="certNodeHeader">
+          <span class="certNodeId">CERT — 06</span>
+          <span class="certNodeOrg">CU Boulder · Coursera</span>
+        </div>
+        <div class="certNodeTitle">Algorithms for Searching, Sorting and Indexing</div>
+        <div class="certNodeDomain certNodeDomain--cyan">DSA · Algorithms</div>
+        <div class="certNodeBar"><div class="certNodeFill" style="--w:88%"></div></div>
+        <div class="certNodeVerify">Verify ↗</div>
+      </a>
+
+      <a class="certNode" href="https://www.coursera.org/account/accomplishments/verify/JMPN3OHHF1T2" target="_blank" rel="noopener">
+        <div class="certNodeHeader">
+          <span class="certNodeId">CERT — 07</span>
+          <span class="certNodeOrg">CU Boulder · Coursera</span>
+        </div>
+        <div class="certNodeTitle">Dynamic Programming, Greedy Algorithms</div>
+        <div class="certNodeDomain certNodeDomain--cyan">DSA · Algorithms</div>
+        <div class="certNodeBar"><div class="certNodeFill" style="--w:86%"></div></div>
+        <div class="certNodeVerify">Verify ↗</div>
+      </a>
+
+      <a class="certNode" href="https://www.coursera.org/account/accomplishments/verify/LNX1ZPNEWMC6" target="_blank" rel="noopener">
+        <div class="certNodeHeader">
+          <span class="certNodeId">CERT — 08</span>
+          <span class="certNodeOrg">CU Boulder · Coursera</span>
+        </div>
+        <div class="certNodeTitle">Advanced Data Structures, RSA and Quantum Algorithms</div>
+        <div class="certNodeDomain certNodeDomain--purple">DSA · Cryptography · Quantum</div>
+        <div class="certNodeBar"><div class="certNodeFill" style="--w:80%"></div></div>
+        <div class="certNodeVerify">Verify ↗</div>
+      </a>
+
+      <a class="certNode" href="https://www.coursera.org/account/accomplishments/specialization/7O4JJ8I4T2EH" target="_blank" rel="noopener">
+        <div class="certNodeHeader">
+          <span class="certNodeId">CERT — 09</span>
+          <span class="certNodeOrg">Coursera · Specialization</span>
+        </div>
+        <div class="certNodeTitle">Design Thinking Specialization</div>
+        <div class="certNodeDomain certNodeDomain--amber">UX · Product · Innovation</div>
+        <div class="certNodeBar"><div class="certNodeFill" style="--w:92%"></div></div>
+        <div class="certNodeVerify">Verify ↗</div>
+      </a>
+
+      <a class="certNode" href="https://www.coursera.org/account/accomplishments/specialization/86BKOP3BT4CT" target="_blank" rel="noopener">
+        <div class="certNodeHeader">
+          <span class="certNodeId">CERT — 10</span>
+          <span class="certNodeOrg">CU Boulder · Specialization</span>
+        </div>
+        <div class="certNodeTitle">Foundations of Data Structures and Algorithms</div>
+        <div class="certNodeDomain certNodeDomain--cyan">DSA · Computer Science</div>
+        <div class="certNodeBar"><div class="certNodeFill" style="--w:89%"></div></div>
+        <div class="certNodeVerify">Verify ↗</div>
+      </a>
+
+      <a class="certNode" href="https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/E9pA6qsdbeyEkp3ti_9PBTqmSxAf6zZTseP_6a1851bf417ca6953310f266_1780548903150_completion_certificate.pdf" target="_blank" rel="noopener">
+        <div class="certNodeHeader">
+          <span class="certNodeId">CERT — 11</span>
+          <span class="certNodeOrg">Deloitte · Forage</span>
+        </div>
+        <div class="certNodeTitle">Cyber Job Simulation</div>
+        <div class="certNodeDomain certNodeDomain--green">Cybersecurity · Threat Analysis</div>
+        <div class="certNodeBar"><div class="certNodeFill" style="--w:94%"></div></div>
+        <div class="certNodeVerify">Verify ↗</div>
+      </a>
+
+      <a class="certNode" href="https://www.theforage.com/completion-certificates/ifobHAoMjQs9s6bKS/gmf3ypEXBj2wvfQWC_ifobHAoMjQs9s6bKS_6a1851bf417ca6953310f266_1780553979598_completion_certificate.pdf" target="_blank" rel="noopener">
+        <div class="certNodeHeader">
+          <span class="certNodeId">CERT — 12</span>
+          <span class="certNodeOrg">TATA · Forage</span>
+        </div>
+        <div class="certNodeTitle">Cybersecurity Analyst Job Simulation</div>
+        <div class="certNodeDomain certNodeDomain--green">Cybersecurity · SOC · Analysis</div>
+        <div class="certNodeBar"><div class="certNodeFill" style="--w:93%"></div></div>
+        <div class="certNodeVerify">Verify ↗</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ── Layer 05 (shown last visually): Research Logs ── -->
+  <div class="labLayer">
+    <div class="labLayerHeader rv">
+      <span class="labLayerCode">LAYER — 05</span>
+      <span class="labLayerName">Research Logs</span>
+    </div>
+
+    <div class="labLogs">
+
+      <div class="labLog rv">
+        <div class="labLogId">LOG — 001</div>
+        <div class="labLogBody">
+          <h4 class="labLogTitle">Generative AI Application Study</h4>
+          <p class="labLogDesc">IBM-certified exploration of GenAI fundamentals — prompt engineering, foundation model behavior, and practical AI integration patterns in product contexts.</p>
+          <div class="labLogTags"><span>GenAI</span><span>IBM Cert</span><span>LLMs</span></div>
+        </div>
+      </div>
+
+      <div class="labLog rv">
+        <div class="labLogId">LOG — 002</div>
+        <div class="labLogBody">
+          <h4 class="labLogTitle">Women in Tech — Community Events</h4>
+          <p class="labLogDesc">Active participant across Women in Tech Dreamin', TDX Kolkata, Google Cloud Community Days 2025, ML Meets Web, and GenAI Workshop series.</p>
+          <div class="labLogTags"><span>Cloud</span><span>Community</span><span>Networking</span></div>
+        </div>
+      </div>
+
+      <div class="labLog rv">
+        <div class="labLogId">LOG — 003</div>
+        <div class="labLogBody">
+          <h4 class="labLogTitle">OS + Security Fundamentals</h4>
+          <p class="labLogDesc">Microsoft-certified study of OS architecture, security fundamentals, and hardware interaction layers — spanning kernel behavior, permissions, and threat surfaces.</p>
+          <div class="labLogTags"><span>Microsoft</span><span>OS Design</span><span>Security</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══ CAPABILITIES ═══ -->
+<section id="cap">
+ <div class="workHead">
+    <h2 class="rv">SKILLs</h2>
+  </div>
+  <div class="capMatrix rv">
+    <div class="capHRow"><div class="capHCell">Domain</div><div class="capHCell">Stack / Tools</div></div>
+
+    <div class="capRow">
+      <div class="capDom">Programming</div>
+      <div class="capStack">
+        <span class="capChip">C</span>
+        <span class="capChip">C++</span>
+        <span class="capChip">Python</span>
+      </div>
+    </div>
+
+    <div class="capRow">
+      <div class="capDom">Frontend</div>
+      <div class="capStack">
+        <span class="capChip">React</span>
+        <span class="capChip">React Native</span>
+        <span class="capChip">TypeScript</span>
+        <span class="capChip">HTML/CSS</span>
+        <span class="capChip">JavaScript</span>
+        <span class="capChip">Tailwind CSS</span>
+      </div>
+    </div>
+
+    <div class="capRow">
+      <div class="capDom">Backend</div>
+      <div class="capStack">
+        <span class="capChip">Node.js</span>
+        <span class="capChip">Flask</span>
+      </div>
+    </div>
+
+    <div class="capRow">
+      <div class="capDom">Database</div>
+      <div class="capStack">
+        <span class="capChip">MySQL</span>
+        <span class="capChip">MongoDB</span>
+      </div>
+    </div>
+
+    <div class="capRow">
+      <div class="capDom">AI / ML</div>
+      <div class="capStack">
+        <span class="capChip">Scikit-Learn</span>
+        <span class="capChip">NLP</span>
+        <span class="capChip">Regression</span>
+        <span class="capChip">GenAI</span>
+      </div>
+    </div>
+
+    <div class="capRow">
+      <div class="capDom">Cyber</div>
+      <div class="capStack">
+        <span class="capChip">Security Fundamentals</span>
+        <span class="capChip">Threat Modeling</span>
+        <span class="capChip">Behavioral Detection</span>
+        <span class="capChip">Zero-Day Detection</span>
+      </div>
+    </div>
+
+    <div class="capRow">
+      <div class="capDom">Blockchain</div>
+      <div class="capStack">
+        <span class="capChip">Web3 Concepts</span>
+        <span class="capChip">Smart Contracts</span>
+        <span class="capChip">DeFi Research</span>
+        <span class="capChip">Trust Systems</span>
+      </div>
+    </div>
+
+    <div class="capRow">
+      <div class="capDom">Cloud / DevOps</div>
+      <div class="capStack">
+        <span class="capChip">AWS EC2</span>
+        <span class="capChip">AWS S3</span>
+        <span class="capChip">IAM</span>
+        <span class="capChip">CI/CD</span>
+        <span class="capChip">Linux</span>
+        <span class="capChip">Git/GitHub</span>
+      </div>
+    </div>
+
+    <div class="capRow">
+      <div class="capDom">IoT / Systems</div>
+      <div class="capStack">
+        <span class="capChip">Arduino Uno</span>
+        <span class="capChip">IR Sensors</span>
+        <span class="capChip">Ultrasonic Sensor</span>
+        <span class="capChip">Embedded C</span>
+      </div>
+    </div>
+
+    <div class="capRow">
+      <div class="capDom">Tools</div>
+      <div class="capStack">
+        <span class="capChip">VS Code</span>
+        <span class="capChip">Git</span>
+        <span class="capChip">GitHub</span>
+      </div>
+    </div>
+
+    <div class="capRow">
+      <div class="capDom">Soft Skills</div>
+      <div class="capStack">
+        <span class="capChip">Communication</span>
+        <span class="capChip">Team Collaboration</span>
+        <span class="capChip">Leadership</span>
+        <span class="capChip">Problem Solving</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ MANIFESTO ═══ -->
+<section id="manifesto">
+  <div class="sLabel" style="justify-content:center">Philosophy</div>
+  <div class="manifQ rv">
+    I approach development as <i>system design</i> — combining engineering logic, interaction thinking, and emerging technology to create digital experiences that feel intelligent, intentional, and adaptive.
+  </div>
+  <div class="manifSub rv2">
+    Not simply building projects. Designing technological systems. Experimenting with emerging architectures. Treating software as an interactive medium with depth, behavior, and identity.
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <canvas id="cCanvas"></canvas>
+
+  <div class="ctInner">
+
+    <!-- ── Left: headline + form ── -->
+    <div class="ctLeft">
+      <div class="cEye">Open Channel — Let's Connect</div>
+
+      <h2 class="cHead rv">
+        LET'S BUILD<br>
+        SOMETHING<br>
+        <span>INTELLIGENT.</span>
+      </h2>
+
+      <form class="ctForm rv2" id="ctForm" novalidate autocomplete="off">
+        <div class="ctFormRow">
+          <div class="ctField">
+            <input class="ctInput mag" type="text" name="ct-name" id="ctName" placeholder="YOUR NAME" autocomplete="off" spellcheck="false">
+          </div>
+          <div class="ctField">
+            <input class="ctInput mag" type="email" name="ct-email" id="ctEmail" placeholder="YOUR EMAIL" autocomplete="off" spellcheck="false">
+            <span class="ctEmailError" id="ctEmailError" role="alert" aria-live="polite">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span id="ctEmailErrorText">Invalid email address</span>
+            </span>
+          </div>
+        </div>
+        <div class="ctField">
+          <input class="ctInput mag" type="text" name="ct-subject" id="ctSubject" placeholder="SUBJECT" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="ctField">
+          <textarea class="ctInput ctTextarea mag" name="ct-message" id="ctMsg" placeholder="YOUR MESSAGE..." rows="5" autocomplete="off" spellcheck="false"></textarea>
+        </div>
+        <button type="submit" class="ctSubmit mag" id="ctSubmitBtn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          <span id="ctSubmitLabel">Send Message →</span>
+        </button>
+      </form>
+
+      <div class="ctQuickLinks rv2">
+        <a href="mailto:shreyachowdhury973@gmail.com" class="ctQL mag">shreyachowdhury973@gmail.com</a>
+        <span class="ctQSep">—</span>
+        <a href="https://linkedin.com/in/shreya-chowdhury" target="_blank" rel="noopener" class="ctQL mag">LinkedIn</a>
+        <span class="ctQSep">—</span>
+        <a href="https://github.com/Shrezzzzz" target="_blank" rel="noopener" class="ctQL mag">GitHub</a>
+      </div>
+    </div>
+
+    <!-- ── Right: direct links panel ── -->
+    <div class="ctRight rv2">
+      <div class="ctPanel">
+        <div class="ctPanelLabel">Direct Links</div>
+
+        <a href="https://wa.me/916289080162" target="_blank" rel="noopener" class="ctPanelLink mag">
+          <div class="ctPanelIcon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </div>
+          <div class="ctPanelInfo">
+            <span class="ctPanelType">WhatsApp</span>
+            <span class="ctPanelVal">+91 62890 80162</span>
+          </div>
+        </a>
+
+        <a href="mailto:shreyachowdhury973@gmail.com" class="ctPanelLink mag">
+          <div class="ctPanelIcon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+          </div>
+          <div class="ctPanelInfo">
+            <span class="ctPanelType">Email</span>
+            <span class="ctPanelVal">shreyachowdhury973@gmail.com</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/Shrezzzzz" target="_blank" rel="noopener" class="ctPanelLink mag">
+          <div class="ctPanelIcon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          </div>
+          <div class="ctPanelInfo">
+            <span class="ctPanelType">GitHub</span>
+            <span class="ctPanelVal">github.com/Shrezzzzz</span>
+          </div>
+        </a>
+
+        <a href="https://linkedin.com/in/shreya-chowdhury" target="_blank" rel="noopener" class="ctPanelLink mag">
+          <div class="ctPanelIcon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </div>
+          <div class="ctPanelInfo">
+            <span class="ctPanelType">LinkedIn</span>
+            <span class="ctPanelVal">shreya-chowdhury</span>
+          </div>
+        </a>
+
+        <div class="ctAvail">
+          <div class="idleDot idleDot--green"></div>
+          <span>Available for Opportunities</span>
+        </div>
+
+        <div class="ctLocation">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          System Online · Kolkata, India
+        </div>
+
+        <div class="ctOpenTo">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Open to opportunities in Bangalore, Kolkata, Pune, and Goa.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /ctInner -->
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer id="siteFooter">
+  <div class="ftTop">
+
+    <!-- Col 1: Brand -->
+    <div class="ftBrand">
+      <a href="#hero" class="ftLogo mag">Shreya <em>Chowdhury</em></a>
+      <p class="ftTagline">Creative Engineer · Cybersecurity · AI/ML<br>IoT · Blockchain · Frontend · Cloud</p>
+      <div class="ftLocation">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Kolkata, West Bengal, India
+      </div>
+      <div class="ftAvail">
+        <div class="idleDot idleDot--green"></div>
+        Available for Opportunities
+      </div>
+    </div>
+
+    <!-- Col 2: Navigation -->
+    <div class="ftNav">
+      <div class="ftNavLabel">Navigation</div>
+      <div class="ftNavLinks">
+        <a href="#workHub" class="ftNavLink mag">Work</a>
+        <a href="#lab" class="ftNavLink mag">Experience</a>
+        <a href="#about" class="ftNavLink mag">About</a>
+        <a href="#cap" class="ftNavLink mag">Skills</a>
+        <a href="#workHub" class="ftNavLink mag">Projects</a>
+        <a href="#contact" class="ftNavLink mag">Contact</a>
+      </div>
+    </div>
+
+    <!-- Col 3: Connect -->
+    <div class="ftConnect">
+      <div class="ftNavLabel">Connect</div>
+      <div class="ftSocials">
+        <a href="https://github.com/Shrezzzzz" target="_blank" rel="noopener" class="ftSocial mag" aria-label="GitHub">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/shreya-chowdhury" target="_blank" rel="noopener" class="ftSocial mag" aria-label="LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://wa.me/916289080162" target="_blank" rel="noopener" class="ftSocial mag" aria-label="WhatsApp">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <a href="mailto:shreyachowdhury973@gmail.com" class="ftSocial mag" aria-label="Email">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="ftSocial mag" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </div>
+      <a href="mailto:shreyachowdhury973@gmail.com" class="ftEmail mag">shreyachowdhury973@gmail.com</a>
+    </div>
+
+  </div>
+
+  <!-- Footer bottom bar -->
+  <div class="ftBottom">
+    <span class="ftCopy">© 2026 <strong>Shreya Chowdhury</strong> — All rights reserved</span>
+    <span class="ftBuilt">Built with <span class="ftHeart" aria-label="love">♥</span></span>
+    <div class="ftIdle">
+      <div class="idleDot idleDot--green"></div>
+      System Idle — Kolkata, India
+    </div>
+  </div>
+</footer>
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- Orchestrator Script -->
+<script src="js/main.js" defer></script>
+</body>
+</html>

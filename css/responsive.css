@@ -1,0 +1,132 @@
+/* ─────────────────────── RESPONSIVE ─────────────────────── */
+@media(max-width:1200px){
+  .identityLayout{gap:48px}
+  .aboutImgContainer{width:100%;max-width:320px;height:auto;aspect-ratio:1}
+  .identityBio p,.capTags{max-width:100%}
+  .certMatrix{grid-template-columns:repeat(2,1fr)}
+  .aboutLower{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)}
+  .acadGrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:900px){
+  nav{padding:20px 24px}
+  #hero,.pInner,section{padding-left:24px;padding-right:24px}
+  .pInner,#hero{padding-top:80px;padding-bottom:60px}
+  .hMeta{top:72px;left:24px;right:24px}
+  .pInner,.identityLayout{grid-template-columns:1fr;gap:48px}
+  .identityBottom{grid-template-columns:1fr;}
+  .pInner.flip{direction:ltr}
+  .labGrid{grid-template-columns:1fr 1fr}
+  .capHRow,.capRow{grid-template-columns:1fr}
+  .capHRow .capHCell:first-child,.capRow .capDom{margin-bottom:8px}
+  #contact{padding:60px 24px}
+  .aboutStatement{font-size:clamp(40px,6vw,72px);max-width:100%}
+  .aboutImgContainer{width:100%;height:auto;max-width:400px;aspect-ratio:1}
+  .identityBio p,.capTags{max-width:100%}
+  #C,#CR,#reticle{display:none}
+  body{cursor:auto}
+
+  /* About lower half — stack to single column on tablet */
+  .aboutLower{grid-template-columns:1fr}
+  .aboutLowerRight{position:static; top:auto;}
+  .acadGrid{grid-template-columns:1fr}
+  .acadCard{grid-template-columns:1fr}
+  .acadCardMeta{flex-direction:row;align-items:center;gap:1rem;flex-wrap:wrap;padding-bottom:.75rem;border-bottom:1px solid var(--border);}
+
+  /* Domain panels on tablet */
+  .domainPanel { flex: 0 0 180px; height: 260px; }
+  .domainPanel.active { flex-basis: 340px; height: 300px; }
+  .domainStrip.has-active .domainPanel:not(.active) { flex-basis: 130px; }
+  .dpTitle { font-size: 28px !important; }
+  .projectHero { grid-template-columns: 1fr; gap: 40px; min-height: auto; }
+  .projectHero.reverse { direction: ltr; }
+  .projectVideoWrap { height: 320px; }
+
+  /* Lab tablet */
+  .labHero { flex-direction: column; align-items: flex-start; gap: 32px; }
+  .labStats { gap: 32px; }
+  .labRecord { grid-template-columns: 1fr; }
+  .labRecordSide { border-right: none; border-bottom: 1px solid var(--border); flex-direction: row; align-items: center; gap: 24px; padding: 20px 28px; }
+  .labRecordStatus { margin-top: 0; }
+  .labRecordMain { padding: 28px; }
+  .labVault { grid-template-columns: 1fr; }
+  .certMatrix { grid-template-columns: repeat(2, 1fr); }
+  .labLogs { grid-template-columns: 1fr 1fr; }
+  /* Timeline tablet — tighten left offset */
+  .tlWrap { padding-left: 52px; }
+  .tlSpine { left: 15px; }
+  .tlPulse { left: 12px; }
+  .tlYearMarker::before { left: -40px; }
+  .tlCard { margin-left: 12px; padding: 16px 18px 14px; }
+}
+@media(max-width:600px){
+  .labGrid{grid-template-columns:1fr}
+  .hBot{flex-direction:column;align-items:flex-start}
+  .hScroll{display:none}
+
+  /* About lower half mobile */
+  .aboutLower{grid-template-columns:1fr;gap:2rem}
+  .acadGrid{grid-template-columns:1fr}
+  .acadCard{grid-template-columns:1fr;padding:1.25rem}
+  .acadCardMeta{flex-direction:row;align-items:center;gap:.75rem;flex-wrap:wrap}
+  .langGrid{grid-template-columns:1fr}
+  .bioBlock,.bioTagsBlock{gap:.75rem}
+
+  /* Domain panels on mobile */
+  .domainPanel { flex: 0 0 150px; height: 230px; }
+  .domainPanel.active { flex-basis: 280px; height: 260px; }
+  .domainStrip.has-active .domainPanel:not(.active) { flex-basis: 110px; }
+  .dpTitle { font-size: 24px !important; }
+  .dpSub { display: none; }
+  .projectTitle { font-size: clamp(52px,12vw,90px) !important; }
+  .projectVideoWrap { height: 240px; }
+
+  /* Lab mobile */
+  .labStats { gap: 24px; }
+  .labStatN { font-size: 36px; }
+  .certMatrix { grid-template-columns: 1fr; }
+  .labLogs { grid-template-columns: 1fr; }
+  .labRecordSide { flex-direction: column; align-items: flex-start; gap: 8px; }
+  /* Timeline mobile — collapse left padding further */
+  .tlWrap { padding-left: 40px; }
+  .tlSpine { left: 11px; }
+  .tlPulse { left: 8px; }
+  .tlYearMarker::before { left: -32px; }
+  .tlCard { margin-left: 8px; padding: 14px 14px 12px; transform: none !important; }
+  .tlEvent:hover .tlCard,
+  .tlEvent.is-open .tlCard { transform: none !important; }
+  .tlName { font-size: 17px; }
+  .tlBadges { flex-wrap: wrap; }
+  .tlDetail { max-height: none; }
+  .tlEvent.is-open .tlDetail { max-height: 320px; }
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .rv,.rv2{opacity:1;transform:none}
+}
+
+/* ─────────────────────── CONTACT + FOOTER RESPONSIVE ─────────────────────── */
+@media(max-width:1100px){
+  .ctInner { grid-template-columns: 1fr 1fr; gap: 48px; }
+  .ftTop   { grid-template-columns: 1fr 1fr 1fr; }
+}
+@media(max-width:900px){
+  #contact { padding: 80px 24px 64px; }
+  .ctInner { grid-template-columns: 1fr; gap: 56px; }
+  .ctRight { order: -1; }        /* panel above form on tablet/mobile */
+  .ctFormRow { grid-template-columns: 1fr; }
+  .cHead { font-size: clamp(44px, 10vw, 80px); margin-bottom: 36px; }
+  #siteFooter { padding: 56px 24px 0; }
+  .ftTop { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .ftBrand { grid-column: 1 / -1; }  /* brand spans full width */
+}
+@media(max-width:600px){
+  #contact { padding: 64px 20px 52px; }
+  .cHead { font-size: clamp(40px, 12vw, 68px); }
+  .ctFormRow { grid-template-columns: 1fr; }
+  .ctQuickLinks { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .ctQSep { display: none; }
+  #siteFooter { padding: 48px 20px 0; }
+  .ftTop { grid-template-columns: 1fr; gap: 32px; }
+  .ftBrand { grid-column: auto; }
+  .ftBottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+}

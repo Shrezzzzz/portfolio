@@ -1,0 +1,1143 @@
+/* ══════════════════════════════════════════════════════
+   LAB — Research Facility Redesign
+   Private Engineering Laboratory × Innovation Archive
+══════════════════════════════════════════════════════ */
+
+/* ── Section shell ── */
+#lab {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding-bottom: 140px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient grid overlay */
+#lab::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(99,211,206,.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99,211,206,.018) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Lab hero header ── */
+.labHero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 48px;
+  margin-top: 24px;
+  margin-bottom: 96px;
+  position: relative;
+  z-index: 1;
+}
+
+.labHeroLeft {
+  max-width: 600px;
+}
+
+.labTitle {
+  font-family: var(--serif);
+  font-size: clamp(52px, 7vw, 110px);
+  letter-spacing: -.04em;
+  line-height: .9;
+  margin-bottom: 28px;
+}
+
+.labIntro {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--txt2);
+  line-height: 2;
+  letter-spacing: .03em;
+  max-width: 480px;
+}
+
+/* ── Lab statistics row ── */
+.labStats {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.labStat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+
+.labStat::before {
+  content: '';
+  position: absolute;
+  top: -12px; left: 0;
+  width: 20px; height: 1px;
+  background: var(--c);
+  opacity: .4;
+}
+
+.labStatN {
+  font-family: var(--serif);
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1;
+  letter-spacing: -.03em;
+  color: var(--txt);
+  font-style: italic;
+  transition: color .3s;
+}
+
+.labStat:hover .labStatN { color: var(--c); }
+
+.labStatL {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--txt3);
+}
+
+/* ── Layer structure ── */
+.labLayer {
+  margin-top: 100px;
+  position: relative;
+  z-index: 1;
+}
+
+.labLayerHeader {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 48px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.labLayerCode {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--c);
+  opacity: .6;
+}
+
+.labLayerName {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--txt3);
+}
+
+/* ══════════════════════════════════════════════════════
+   LAYER 02 — EXPERIENCE ARCHIVE (LAB RECORDS)
+══════════════════════════════════════════════════════ */
+
+.labRecords {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+}
+
+.labRecord {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+  transition: background .35s;
+}
+
+.labRecord:hover {
+  background: rgba(12, 17, 32, .8);
+}
+
+/* Left sidebar */
+.labRecordSide {
+  padding: 36px 32px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: rgba(255,255,255,.012);
+}
+
+.labRecordId {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--c);
+  opacity: .65;
+}
+
+.labRecordYear {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .07em;
+  color: var(--txt2);
+  margin-top: 8px;
+}
+
+.labRecordDuration {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--txt3);
+}
+
+.labRecordStatus {
+  display: inline-block;
+  margin-top: auto;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border: 1px solid;
+}
+
+.labRecordStatus--active {
+  color: var(--txt3);
+  border-color: var(--border2);
+}
+
+.labRecordStatus--live {
+  color: var(--green);
+  border-color: rgba(74,222,128,.3);
+  animation: labStatusPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes labStatusPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+
+/* Right content */
+.labRecordMain {
+  padding: 36px 40px;
+}
+
+.labRecordCategory {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--c);
+  opacity: .75;
+  margin-bottom: 14px;
+}
+
+.labRecordTitle {
+  font-family: var(--serif);
+  font-size: clamp(24px, 2.8vw, 40px);
+  letter-spacing: -.025em;
+  line-height: 1.05;
+  color: var(--txt);
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+
+.labRecordOrg {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .09em;
+  color: var(--c);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.labRecordGpa {
+  color: var(--green);
+  font-size: 10px;
+  letter-spacing: .12em;
+}
+
+.labRecordDesc {
+  font-size: 14px;
+  color: var(--txt2);
+  line-height: 2;
+  font-weight: 400;
+  max-width: 640px;
+  margin-bottom: 20px;
+}
+
+.labRecordTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.labRecordTags span {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 5px 11px;
+  border: 1px solid var(--border2);
+  color: var(--txt2);
+  transition: border-color .3s, color .3s;
+}
+
+.labRecord:hover .labRecordTags span {
+  border-color: rgba(99,211,206,.25);
+  color: var(--txt);
+}
+
+/* Hover glow sweep */
+.labRecordGlow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(99,211,206,.03) 0%, transparent 60%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .4s;
+}
+
+.labRecord:hover .labRecordGlow { opacity: 1; }
+
+/* ══════════════════════════════════════════════════════
+   LAYER 03 — ACHIEVEMENT VAULT
+══════════════════════════════════════════════════════ */
+
+.labVault {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border);
+}
+
+.vaultRecord {
+  background: var(--bg);
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: background .4s;
+}
+
+.vaultRecord:hover {
+  background: rgba(8, 12, 24, .9);
+}
+
+.vaultTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.vaultClearance {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--c);
+  opacity: .65;
+}
+
+.vaultYear {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .12em;
+  color: var(--txt3);
+}
+
+.vaultTitle {
+  font-family: var(--serif);
+  font-size: clamp(18px, 2vw, 26px);
+  letter-spacing: -.02em;
+  color: var(--txt);
+  margin-bottom: 14px;
+  line-height: 1.15;
+  font-weight: 400;
+}
+
+.vaultRank {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 52px);
+  letter-spacing: -.04em;
+  line-height: 1;
+  color: var(--txt);
+  font-style: italic;
+  margin-bottom: 16px;
+  transition: color .35s;
+}
+
+.vaultRecord:hover .vaultRank { color: var(--c); }
+
+.vaultDesc {
+  font-size: 13px;
+  color: var(--txt2);
+  line-height: 1.9;
+  font-weight: 300;
+  margin-bottom: 24px;
+  max-width: 360px;
+}
+
+.vaultMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,.05);
+}
+
+.vaultCat {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--txt3);
+}
+
+.vaultStat {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--c);
+  opacity: .7;
+}
+
+/* LinkedIn button */
+.vaultLinkedIn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(99,211,206,.7);
+  border: 1px solid rgba(99,211,206,.2);
+  padding: 7px 14px;
+  transition: color .3s, border-color .3s, background .3s;
+  position: relative;
+  z-index: 2;
+}
+
+.vaultLinkedIn:hover {
+  color: var(--c);
+  border-color: rgba(99,211,206,.55);
+  background: rgba(99,211,206,.04);
+}
+
+.vaultLinkedIn svg {
+  flex-shrink: 0;
+  opacity: .8;
+  transition: opacity .3s;
+}
+
+.vaultLinkedIn:hover svg { opacity: 1; }
+
+/* Corner accent line */
+.vaultRecord::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--c), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .5s cubic-bezier(.25,.46,.45,.94);
+}
+
+.vaultRecord:hover::before { transform: scaleX(1); }
+
+/* Glow */
+.vaultGlow {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 160px;
+  background: radial-gradient(ellipse 80% 100% at 50% 120%, rgba(99,211,206,.07) 0%, transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .5s;
+}
+
+.vaultRecord:hover .vaultGlow { opacity: 1; }
+
+/* ══════════════════════════════════════════════════════
+   LAYER 03 — MISSION TIMELINE (REDESIGNED)
+   Year-grouped · Click-to-expand · Vertical spine
+══════════════════════════════════════════════════════ */
+
+/* ── Outer wrapper ── */
+.tlWrap {
+  position: relative;
+  padding-left: 72px;
+}
+.tlSpine {
+  position: absolute;
+  left: 19px;
+  top: 20px;
+  bottom: 28px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(99,211,206,.22) 8%,
+    rgba(99,211,206,.22) 92%,
+    transparent
+  );
+  pointer-events: none;
+}
+
+/* Scanning pulse dot — injected by JS */
+.tlPulse {
+  position: absolute;
+  left: 16px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--c);
+  box-shadow: 0 0 10px rgba(99,211,206,.7), 0 0 20px rgba(99,211,206,.3);
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0;
+  transition: opacity .4s;
+}
+
+/* ── Year group ── */
+.tlYearGroup {
+  margin-bottom: 16px;
+}
+
+.tlYearGroup:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Year marker row ── */
+.tlYearMarker {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 8px;
+  padding: 20px 0 8px;
+  position: relative;
+}
+
+.tlYearMarker::before {
+  content: '';
+  position: absolute;
+  left: -56px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1.5px solid var(--c);
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.tlYearLabel {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .22em;
+  color: var(--c);
+  white-space: nowrap;
+  opacity: .8;
+}
+
+.tlYearLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(99,211,206,.25), transparent);
+}
+
+/* ── Individual event row ── */
+.tlEvent {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 0;
+  position: relative;
+  margin-bottom: 4px;
+  /* Stagger in after parent tlWrap.rv becomes .vis */
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity .45s cubic-bezier(.25,.46,.45,.94),
+    transform .45s cubic-bezier(.25,.46,.45,.94);
+  transition-delay: calc(var(--tl-i, 0) * 70ms + 200ms);
+}
+
+.tlWrap.vis .tlEvent {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Node column ── */
+.tlNodeCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 26px;
+  position: relative;
+}
+
+/* Vertical connector between sibling events */
+.tlNodeCol::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(99,211,206,.1);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.tlEvent:last-child .tlNodeCol::before {
+  bottom: 50%;
+}
+
+/* Dot */
+.tlDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1.5px solid rgba(99,211,206,.5);
+  position: relative;
+  z-index: 1;
+  transition:
+    background .3s,
+    border-color .3s,
+    box-shadow .3s;
+}
+
+/* Ring */
+.tlRing {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  transform: translate(-50%, 0) scale(0);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(99,211,206,.2);
+  z-index: 0;
+  opacity: 0;
+  transition:
+    transform .4s cubic-bezier(.25,.46,.45,.94),
+    opacity .4s;
+}
+
+/* Active / hover states on the node */
+.tlEvent:hover .tlDot,
+.tlEvent.is-open .tlDot {
+  background: var(--c);
+  border-color: var(--c);
+  box-shadow: 0 0 10px rgba(99,211,206,.5);
+}
+
+.tlEvent:hover .tlRing,
+.tlEvent.is-open .tlRing {
+  transform: translate(-50%, 0) scale(1);
+  opacity: 1;
+}
+
+/* ── Card ── */
+.tlCard {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  margin: 10px 0 10px 16px;
+  padding: 20px 24px 16px;
+  position: relative;
+  overflow: hidden;
+  cursor: none;
+  transition:
+    border-color .35s,
+    background .35s,
+    transform .35s cubic-bezier(.25,.46,.45,.94);
+}
+
+/* Left accent bar */
+.tlCard::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--c);
+  opacity: 0;
+  transition: opacity .35s;
+}
+
+/* Top shimmer line */
+.tlCard::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--c), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .5s cubic-bezier(.25,.46,.45,.94);
+}
+
+.tlEvent:hover .tlCard,
+.tlEvent.is-open .tlCard {
+  border-color: rgba(99,211,206,.28);
+  background: rgba(8, 13, 26, .85);
+  transform: translateX(5px);
+}
+
+.tlEvent:hover .tlCard::before,
+.tlEvent.is-open .tlCard::before {
+  opacity: 1;
+}
+
+.tlEvent.is-open .tlCard::after {
+  transform: scaleX(1);
+}
+
+/* ── Card top row ── */
+.tlCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.tlMission {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--txt3);
+}
+
+/* ── Badges ── */
+.tlBadges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tlBadge {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid var(--border2);
+  color: var(--txt2);
+}
+
+.tlBadge--def {
+  color: var(--txt3);
+  border-color: var(--border);
+}
+
+.tlBadge--cyan {
+  color: var(--c);
+  border-color: rgba(99,211,206,.35);
+  background: rgba(99,211,206,.04);
+}
+
+.tlBadge--gold {
+  color: var(--amber);
+  border-color: rgba(251,176,64,.35);
+  background: rgba(251,176,64,.04);
+}
+
+.tlBadge--purple {
+  color: var(--purple);
+  border-color: rgba(167,139,250,.35);
+  background: rgba(167,139,250,.04);
+}
+
+/* ── Title ── */
+.tlName {
+  font-family: var(--serif);
+  font-size: clamp(18px, 2.2vw, 28px);
+  letter-spacing: -.02em;
+  line-height: 1.1;
+  color: var(--txt);
+  font-weight: 400;
+  margin-bottom: 6px;
+  transition: color .3s;
+}
+
+.tlEvent:hover .tlName,
+.tlEvent.is-open .tlName {
+  color: #fff;
+}
+
+/* ── Host ── */
+.tlHost {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .08em;
+  color: var(--c);
+  opacity: .7;
+  margin-bottom: 10px;
+}
+
+/* ── Meta chips (date / mode) ── */
+.tlMeta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.tlMetaChip {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--txt3);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tlMetaChip::before {
+  content: '◆';
+  font-size: 5px;
+  color: rgba(99,211,206,.4);
+}
+
+/* ── Expandable detail block ── */
+.tlDetail {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  transition:
+    max-height .5s cubic-bezier(.25,.46,.45,.94),
+    opacity .35s .08s,
+    margin-top .35s;
+}
+
+.tlEvent.is-open .tlDetail {
+  max-height: 260px;
+  opacity: 1;
+  margin-top: 16px;
+}
+
+.tlDesc {
+  font-size: 13px;
+  color: var(--txt2);
+  line-height: 2;
+  font-weight: 300;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,.05);
+  margin-bottom: 14px;
+}
+
+/* ── Tech chips inside detail ── */
+.tlTech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tlTech span {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 4px 11px;
+  background: rgba(99,211,206,.03);
+  border: 1px solid rgba(99,211,206,.18);
+  color: rgba(99,211,206,.75);
+}
+
+/* ── Toggle affordance ── */
+.tlToggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(99,211,206,.4);
+  transition: color .3s;
+}
+
+.tlToggleIcon {
+  transition: transform .4s cubic-bezier(.25,.46,.45,.94), color .3s;
+  color: rgba(99,211,206,.4);
+}
+
+.tlEvent:hover .tlToggle,
+.tlEvent:hover .tlToggleIcon {
+  color: rgba(99,211,206,.7);
+}
+
+.tlEvent.is-open .tlToggle {
+  color: var(--c);
+}
+
+.tlEvent.is-open .tlToggleIcon {
+  transform: rotate(180deg);
+  color: var(--c);
+}
+
+.tlEvent.is-open .tlToggleLabel::after {
+  content: 'Collapse';
+}
+
+.tlEvent:not(.is-open) .tlToggleLabel::after {
+  content: 'Expand';
+}
+
+/* Hide the actual text node — use ::after instead so JS isn't needed */
+.tlToggleLabel {
+  font-size: 0;
+}
+
+.tlToggleLabel::after {
+  font-size: 9px;
+}
+
+/* ══════════════════════════════════════════════════════
+   LAYER 05 — CERTIFICATION MATRIX
+══════════════════════════════════════════════════════ */
+
+.certMatrix {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+}
+
+.certNode {
+  background: var(--bg);
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  transition: background .35s;
+}
+
+.certNode:hover {
+  background: rgba(8, 12, 24, .9);
+}
+
+.certNodeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.certNodeId {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--txt3);
+}
+
+.certNodeOrg {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--c);
+  opacity: .7;
+}
+
+.certNodeTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--txt);
+  line-height: 1.35;
+  margin-bottom: 12px;
+  transition: color .3s;
+}
+
+.certNode:hover .certNodeTitle { color: rgba(255,255,255,.98); }
+
+.certNodeDomain {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.certNodeDomain--cyan   { color: rgba(99,211,206,.75);  }
+.certNodeDomain--green  { color: rgba(74,222,128,.75);  }
+.certNodeDomain--amber  { color: rgba(251,176,64,.75);  }
+.certNodeDomain--purple { color: rgba(167,139,250,.75); }
+
+/* Competency bar */
+.certNodeBar {
+  height: 1px;
+  background: rgba(255,255,255,.06);
+  position: relative;
+  overflow: visible;
+}
+
+.certNodeFill {
+  position: absolute;
+  left: 0; top: 0;
+  height: 1px;
+  width: 0;
+  background: var(--c);
+  transition: width 1.2s cubic-bezier(.25,.46,.45,.94);
+  opacity: .5;
+}
+
+.certNode.in-view .certNodeFill {
+  width: var(--w);
+}
+
+/* Top edge line on hover */
+.certNode::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--c), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .45s cubic-bezier(.25,.46,.45,.94);
+}
+
+.certNode:hover::before { transform: scaleX(1); }
+
+/* anchor reset — certNode used as <a> */
+a.certNode {
+  text-decoration: none;
+  color: inherit;
+  cursor: none;
+  display: block;
+}
+
+/* Verify label */
+.certNodeVerify {
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(99,211,206,.45);
+  transition: color .3s;
+}
+
+a.certNode:hover .certNodeVerify {
+  color: var(--c);
+}
+
+/* ══════════════════════════════════════════════════════
+   LAYER 01 — RESEARCH LOGS (HORIZONTAL SCROLL STRIP)
+══════════════════════════════════════════════════════ */
+
+.labLogs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+}
+
+.labLog {
+  background: var(--bg);
+  padding: 0;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  transition: background .3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.labLog:hover {
+  background: rgba(255,255,255,.013);
+}
+
+.labLogId {
+  padding: 28px 0 28px 24px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--txt3);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  line-height: 1;
+  opacity: .6;
+  transition: opacity .3s, color .3s;
+}
+
+.labLog:hover .labLogId {
+  opacity: 1;
+  color: var(--c);
+}
+
+.labLogBody {
+  padding: 28px 24px;
+}
+
+.labLogTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--txt);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.labLogDesc {
+  font-size: 13px;
+  color: var(--txt2);
+  line-height: 1.85;
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+.labLogTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.labLogTags span {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--border2);
+  color: var(--txt2);
+}
+
+/* ── Left scan line on hover ── */
+.labLog::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 1px;
+  background: var(--c);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform .4s cubic-bezier(.25,.46,.45,.94);
+}
+
+.labLog:hover::before { transform: scaleY(1); }

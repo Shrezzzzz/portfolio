@@ -1,0 +1,489 @@
+/* ─────────────────────── HERO ─────────────────────── */
+#hero{
+  position:relative;
+  min-height:100vh;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+    'head  btns'
+    'copy  foot';
+  column-gap: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(8rem, 12vh, 11rem) clamp(1.5rem, 3.5vw, 3.5rem) clamp(3rem, 6vh, 5rem);
+  overflow:hidden;
+  align-items:center;
+}
+#heroCanvas{position:absolute;inset:0;opacity:0}
+
+/* Status bar — absolute, pinned below the fixed nav */
+.hMeta{
+  font-family:var(--mono);font-size:clamp(0.6rem, 0.75vw, 0.72rem);
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--c);
+  position:absolute;
+  top:clamp(6rem, 9vh, 7.5rem);
+  left:clamp(1.5rem, 3.5vw, 3.5rem);right:clamp(1.5rem, 3.5vw, 3.5rem);
+  z-index:1;
+  display:flex;flex-wrap:wrap;gap:0.25rem 1.75rem;
+  opacity:0;animation:fadeU .9s cubic-bezier(.25,.46,.45,.94) .5s forwards;
+}
+.hMeta em{color:var(--txt2);font-style:normal;font-weight:400}
+
+/* Heading block — left column */
+.hHead{
+  grid-area:head;
+  font-family:var(--serif);
+  font-size:clamp(5rem, 12vw, 11rem);
+  line-height:.88;letter-spacing:-.04em;
+  position:relative;z-index:1;
+  align-self:center;
+  margin:0;
+}
+.hLine{
+  display:block;
+  opacity:0;transform:translateY(48px);
+  animation:fadeU 1.1s cubic-bezier(.22,1,.36,1) forwards;
+}
+.hLine:nth-child(1){animation-delay:.75s}
+.hLine:nth-child(2){animation-delay:.9s;color:var(--c);font-style:italic}
+.hLine:nth-child(3){animation-delay:1.05s}
+.hLine:nth-child(4){animation-delay:1.2s;color:var(--txt3);font-size:.62em;font-style:italic}
+
+/* Button grid — right column, vertically centred */
+.hCtas{
+  grid-area:btns;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  opacity:0;animation:fadeU .9s cubic-bezier(.25,.46,.45,.94) 1.7s forwards;
+}
+
+/* Bottom row — copy text */
+.hBot{
+  grid-area:copy;
+  display:flex;
+  align-items:flex-start;
+  padding-top:2.5rem;
+  position:relative;z-index:1;
+}
+.hCopy{
+  max-width:none;
+  width:100%;
+  font-size:clamp(1rem, 1.4vw, 1.25rem);
+  color:var(--txt2);
+  line-height:1.85;
+  font-weight:400;
+  opacity:0;animation:fadeU .9s cubic-bezier(.25,.46,.45,.94) 1.5s forwards;
+}
+
+/* Bottom-right: Explore Work / Open Lab bottom CTAs */
+.hBotRight{
+  grid-area:foot;
+  display:flex;
+  align-items:flex-end;
+  justify-content:flex-end;
+  gap:12px;
+  opacity:0;animation:fadeU .9s cubic-bezier(.25,.46,.45,.94) 1.8s forwards;
+}
+
+/* ── Floating button zigzag ──────────────────────────
+   5 buttons in a staircase: odd rows right-aligned,
+   even rows left-aligned. Each has its own row so the
+   spacing is explicit and the diagonal reads clearly.
+──────────────────────────────────────────────────────── */
+.hBtnGrid{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  width:100%;
+  max-width:480px;
+}
+
+/* Every button is full-width within its own row wrapper */
+.hBtnRow{
+  display:flex;
+}
+/* Odd rows (1,3,5) — right side */
+.hBtnRow:nth-child(odd){
+  justify-content:flex-end;
+}
+/* Even rows (2,4) — left side */
+.hBtnRow:nth-child(even){
+  justify-content:flex-start;
+  padding-left:0;
+}
+
+/* Base button */
+.hBtn{
+  font-family:var(--mono);
+  font-size:clamp(0.6rem, 0.75vw, 0.72rem);
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  text-decoration:none;
+  padding:1.1em 2.2em;
+  border-radius:100px;
+  border:1px solid transparent;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:0.6em;
+  cursor:none;
+  min-width:12.5rem;
+  transition:background .3s, border-color .3s, color .3s,
+             box-shadow .3s, transform .25s cubic-bezier(.25,.46,.45,.94);
+  white-space:nowrap;
+}
+.hBtn svg{ flex-shrink:0; }
+
+/* Primary — filled cyan */
+.hBtn--primary{
+  background:var(--c);
+  color:#060912;
+  border-color:var(--c);
+  font-weight:700;
+}
+.hBtn--primary:hover{
+  background:#89e8e4;
+  border-color:#89e8e4;
+  transform:translateY(-3px);
+  box-shadow:0 10px 32px rgba(99,211,206,.4);
+}
+.hBtnArrow{
+  font-size:14px;
+  transition:transform .25s;
+}
+.hBtn--primary:hover .hBtnArrow{ transform:translateX(5px); }
+
+/* Ghost — dark glass pill */
+.hBtn--ghost{
+  background:rgba(30,36,52,.85);
+  color:var(--txt2);
+  border-color:rgba(255,255,255,.1);
+  backdrop-filter:blur(8px);
+}
+.hBtn--ghost:hover{
+  background:rgba(40,48,68,.95);
+  border-color:rgba(255,255,255,.22);
+  color:var(--txt);
+  transform:translateY(-2px);
+}
+
+/* ── Bottom CTAs (View Experience style) ── */
+.btnP{
+  font-family:var(--mono);font-size:clamp(0.6rem,0.75vw,0.72rem);letter-spacing:.16em;
+  text-transform:uppercase;padding:1em 2em;
+  background:var(--c);color:#060912;text-decoration:none;
+  transition:all .35s cubic-bezier(.25,.46,.45,.94);font-weight:500;
+  border:none;cursor:none;position:relative;overflow:hidden;
+}
+.btnP::after{
+  content:'';position:absolute;inset:-2px;
+  background:radial-gradient(ellipse 90% 100% at 50% 130%,rgba(99,211,206,.55) 0%,transparent 65%);
+  opacity:0;transition:opacity .4s;pointer-events:none;z-index:-1;
+}
+.btnP:hover{
+  background:#89e8e4;transform:translateY(-3px);
+  box-shadow:0 12px 40px rgba(99,211,206,.35),0 0 0 1px rgba(99,211,206,.4);
+}
+.btnP:hover::after{ opacity:1; }
+
+.btnG{
+  font-family:var(--mono);font-size:clamp(0.6rem,0.75vw,0.72rem);letter-spacing:.16em;
+  text-transform:uppercase;padding:1em 2em;
+  background:transparent;color:var(--txt2);text-decoration:none;
+  border:1px solid var(--border2);
+  transition:all .35s cubic-bezier(.25,.46,.45,.94);
+  cursor:none;position:relative;overflow:hidden;
+}
+.btnG::after{
+  content:'';position:absolute;inset:-2px;
+  background:radial-gradient(ellipse 90% 100% at 50% 130%,rgba(74,222,128,.25) 0%,transparent 65%);
+  opacity:0;transition:opacity .4s;pointer-events:none;z-index:-1;
+}
+.btnG:hover{
+  color:var(--txt);border-color:rgba(74,222,128,.45);
+  transform:translateY(-3px);box-shadow:0 12px 36px rgba(74,222,128,.15);
+}
+.btnG:hover::after{ opacity:1; }
+
+/* Scroll indicator */
+.hScroll{
+  position:absolute;right:56px;bottom:80px;
+  writing-mode:vertical-rl;
+  font-family:var(--mono);font-size:10px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--txt3);
+  display:flex;align-items:center;gap:16px;z-index:1;
+  opacity:0;animation:fadeU .9s cubic-bezier(.25,.46,.45,.94) 2s forwards;
+}
+.hScroll::after{content:'';width:1px;height:64px;background:var(--border2)}
+
+/* ── Responsive ── */
+@media(max-width:56.25rem){   /* ~900px */
+  #hero{
+    grid-template-columns:1fr;
+    grid-template-areas:'head' 'btns' 'copy' 'foot';
+    padding:clamp(7rem,11vh,9rem) 1.5rem clamp(2.5rem,5vh,4rem);
+    align-items:start;
+  }
+  .hCtas{ justify-content:flex-start; }
+  .hBtnGrid{ max-width:100%; }
+  .hBotRight{ justify-content:flex-start; }
+}
+@media(max-width:37.5rem){    /* ~600px */
+  .hBtnRow:nth-child(odd),
+  .hBtnRow:nth-child(even){ justify-content:center; }
+  .hBtn{ min-width:0; width:100%; }
+  .hScroll{ display:none; }
+}
+
+
+
+/* ═══════════════════════════════════════════════════════
+   KALI TERMINAL — exact design match
+   ═══════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+/* ── Container ── */
+.kTerm {
+  grid-area: head;
+  position: relative;
+  align-self: center;
+  justify-self: start;
+  width: 100%;
+  max-width: clamp(380px, 48vw, 660px);
+  transform: rotate(-3deg);
+  transform-origin: center center;
+  z-index: 4;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #0d1117;
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,.6),
+    0 0 36px rgba(41,121,200,.18),
+    0 24px 80px rgba(0,0,0,.8),
+    0 8px 24px rgba(0,0,0,.6);
+  animation:
+    kTermFadeIn .9s cubic-bezier(.22,1,.36,1) 1.6s both,
+    kTermFloat 5s ease-in-out 2.5s infinite;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Title bar — pure black ── */
+.kTerm-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #000000;
+  padding: 0 10px;
+  height: 32px;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255,255,255,.04);
+}
+
+.kTerm-bar-left {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.kTerm-bar-title {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 11.5px;
+  color: rgba(255,255,255,.82);
+  letter-spacing: .01em;
+  flex: 1;
+  text-align: center;
+  user-select: none;
+}
+
+/* Controls: two grey + one blue circle */
+.kTerm-bar-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.kTerm-btn {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  cursor: default;
+  user-select: none;
+  transition: filter .15s;
+}
+.kTerm-btn--min { background: #4a4f60; }
+.kTerm-btn--max { background: #4a4f60; }
+.kTerm-btn--close {
+  background: #2979c8;
+  color: rgba(255,255,255,.95);
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1;
+}
+.kTerm-btn:hover { filter: brightness(1.3); }
+
+/* ── Menu bar ── */
+.kTerm-menu {
+  display: flex;
+  gap: 4px;
+  background: #161b27;
+  padding: 4px 12px;
+  border-bottom: 1px solid rgba(255,255,255,.04);
+}
+
+.kTerm-menu span {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 11px;
+  color: rgba(255,255,255,.78);
+  letter-spacing: .01em;
+  padding: 2px 7px;
+  cursor: default;
+  user-select: none;
+  border-radius: 3px;
+  transition: background .15s;
+}
+.kTerm-menu span:hover { background: rgba(255,255,255,.08); }
+
+/* ── Screen ── */
+.kTerm-screen {
+  position: relative;
+  background: #161b27;
+  /* right padding leaves room for the fake scrollbar */
+  padding: 10px 20px 20px 12px;
+  min-height: 340px;
+  overflow: hidden;
+  /* Fake scrollbar strip on right edge — matches real Kali */
+  border-right: 9px solid #0c1019;
+}
+
+/* ── Kali dragon + KALI watermark ── */
+.kTerm-watermark {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Dragon — bottom-left, bleeds off edge slightly */
+.kTerm-wm-dragon {
+  position: absolute;
+  bottom: -6%;
+  left: -4%;
+  width: 60%;
+}
+.kTerm-wm-dragon img {
+  width: 100%;
+  height: auto;
+  display: block;
+  mix-blend-mode: screen;
+  filter: grayscale(1) brightness(0.38);
+  opacity: 0.6;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* KALI box — bottom-right */
+.kTerm-wm-kali {
+  position: absolute;
+  bottom: 8%;
+  right: 4%;
+  width: 38%;
+  color: rgba(255,255,255,0.09);
+}
+
+/* ── Output ── */
+.kTerm-output {
+  position: relative;
+  z-index: 1;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  font-size: clamp(11px, 1.15vw, 13px);
+  line-height: 1.65;
+  white-space: pre;
+  letter-spacing: .01em;
+  color: #cdd6f4;
+}
+
+/* ── Syntax tokens — exact Kali blue prompt ── */
+.kt-prompt { color: #2979c8; }
+.kt-user   { color: #2979c8; }
+.kt-dir    { color: #2979c8; }
+.kt-cmd    { color: #cdd6f4; }
+.kt-green  { color: #a6e3a1; }
+.kt-yellow { color: #f9e2af; }
+.kt-purple { color: #cba6f7; }
+.kt-dim    { color: rgba(205,214,244,.45); }
+
+/* ── Cursor — light grey block ── */
+.kTerm-cursor {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  width: 8px;
+  height: 15px;
+  background: #d0d0d0;
+  vertical-align: text-bottom;
+  margin-left: 1px;
+  border-radius: 1px;
+  animation: kCursorBlink 1.1s step-start infinite;
+}
+
+/* ── Keyframes ── */
+@keyframes kTermFadeIn {
+  from { opacity: 0; transform: translateY(20px) rotate(-3deg); }
+  to   { opacity: 1; transform: translateY(0)    rotate(-3deg); }
+}
+@keyframes kTermFloat {
+  0%, 100% { transform: translateY(0px)  rotate(-3deg); }
+  50%       { transform: translateY(-7px) rotate(-3deg); }
+}
+@keyframes kCursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .kTerm { animation: none; opacity: 1; transform: rotate(-3deg); }
+  .kTerm-cursor { animation: none; opacity: 1; }
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .kTerm { max-width: 100%; }
+  .kTerm-output { font-size: 10.5px; }
+}
+@media (max-width: 900px) {
+  .kTerm {
+    transform: none;
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+    animation: kTermFadeInFlat .9s cubic-bezier(.22,1,.36,1) 1.6s both;
+  }
+  @keyframes kTermFadeInFlat {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: none; }
+  }
+}
+@media (max-width: 600px) {
+  .kTerm { border-radius: 4px; }
+  .kTerm-output { font-size: 10px; }
+  .kTerm-screen { padding: 8px 16px 14px 10px; min-height: 220px; border-right-width: 6px; }
+  .kTerm-menu { gap: 2px; }
+}
+
+/* Terminal title bar icon brightness */
+.kTerm-icon img {
+  opacity: 0.55;
+  filter: brightness(0.85) grayscale(0.2);
+  display: block;
+}

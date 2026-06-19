@@ -1,0 +1,63 @@
+/* ─────────────────────── RESET & BASE ─────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  background:#060912;
+  color:#E8EAF0;
+  font-family:'DM Sans',sans-serif;
+  cursor:none;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(99,211,206,0.2);color:#fff}
+::-webkit-scrollbar{width:2px}
+::-webkit-scrollbar-track{background:#060912}
+::-webkit-scrollbar-thumb{background:#1e2535}
+
+/* ─────────────────────── CSS VARS ─────────────────────── */
+:root{
+  --bg:#060912;
+  --bg1:#0c1120;
+  --bg2:#101828;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.13);
+  --txt:#F0F2F8;
+  --txt2:#A8B0C8;
+  --txt3:#5C6480;
+  --c:rgb(99,211,206);      /* global cyan */
+  --c2:rgba(99,211,206,0.15);
+  --c3:rgba(99,211,206,0.06);
+  --purple:#A78BFA;
+  --amber:#FBB040;
+  --green:#4ADE80;
+  --mono:'IBM Plex Mono',monospace;
+  --serif:'DM Serif Display',serif;
+  --sans:'DM Sans',sans-serif;
+}
+
+/* ─────────────────────── CURSOR LAYOUT ─────────────────────── */
+/* Legacy dot/ring hidden — new reticle cursor rendered via JS SVG */
+#C,#CR{ display:none; }
+
+/* Reticle cursor shell */
+#reticle{
+  position:fixed;
+  pointer-events:none;
+  z-index:9999;
+  transform:translate(-50%,-50%);
+  will-change:transform;
+  mix-blend-mode:normal;
+}
+#reticleSVG{
+  display:block;
+  overflow:visible;
+  transition:transform 0.06s linear;
+}
+/* Acquisition ring and scan ring transitions */
+#rAcqRing{
+  transition: opacity 0.3s ease, r 0.35s cubic-bezier(.25,.46,.45,.94);
+  transform-origin: 24px 24px;
+}
+#rScanRing{
+  transition: opacity 0.4s ease;
+}

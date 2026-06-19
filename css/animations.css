@@ -1,0 +1,68 @@
+/* ─────────────────────── KEYFRAMES ─────────────────────── */
+@keyframes fadeU{
+  from{opacity:0;transform:translateY(28px)}
+  to{opacity:1;transform:none}
+}
+@keyframes scan{
+  0%{transform:translateX(-60%)}
+  100%{transform:translateX(60%)}
+}
+@keyframes barX{
+  from{transform:scaleX(0)}
+  to{transform:scaleX(1)}
+}
+@keyframes barY{
+  from{height:0}
+}
+@keyframes blink{
+  0%,100%{opacity:1}50%{opacity:.25}
+}
+@keyframes imageMaskReveal{
+  from{clip-path:inset(0 100% 0 0)}
+  to{clip-path:inset(0 0 0 0)}
+}
+@keyframes colorEmerge{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+/* Domain panel cinematic entrance pulse */
+@keyframes dpEntrancePulse{
+  0%  { box-shadow: 0 0 0 0   rgba(99,211,206,.0),  0 0 0 1px var(--dp-color); }
+  40% { box-shadow: 0 0 60px 12px rgba(99,211,206,.18), 0 0 0 1px var(--dp-color); }
+  100%{ box-shadow: 0 32px 80px rgba(0,0,0,.5),     0 0 0 1px var(--dp-color); }
+}
+
+/* ─────────────────────── REVEAL ─────────────────────── */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .85s cubic-bezier(.25,.46,.45,.94),transform .85s cubic-bezier(.25,.46,.45,.94)}
+.rv.vis{opacity:1;transform:none}
+.rv2{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94) .15s,transform .7s cubic-bezier(.25,.46,.45,.94) .15s}
+.rv2.vis{opacity:1;transform:none}
+
+/* ─────────────────────── CURSOR HOVER (handled by reticle JS) ─────────────────────── */
+/* body.hov state still toggled by JS — reticle JS reads it directly */
+
+/* ─────────────────────── NAV ACTIVE ─────────────────────── */
+#mainNav .nLinks a.nav-active{
+  color:var(--c);
+  position:relative;
+}
+#mainNav .nLinks a.nav-active::after{
+  content:'';
+  position:absolute;
+  bottom:-4px;left:0;right:0;
+  height:1px;
+  background:var(--c);
+  opacity:.5;
+  transform:scaleX(1);
+}
+
+/* ─────────────────────── DOMAIN PANEL ENTRANCE ─────────────────────── */
+.domainPanel.dp-entrance{
+  animation: dpEntrancePulse .9s cubic-bezier(.25,.46,.45,.94) forwards;
+}
+
+/* ─────────────────────── LAB SECTION ENTERED ─────────────────────── */
+#lab.lab-entered .lCard{
+  border-color:rgba(255,255,255,.07);
+}

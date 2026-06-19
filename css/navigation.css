@@ -1,0 +1,60 @@
+/* ─────────────────────── NAV ─────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:28px 56px;
+  transition:all .5s cubic-bezier(.25,.46,.45,.94);
+}
+nav.dock{
+  top:14px;left:50%;right:auto;
+  transform:translateX(-50%);
+  padding:12px 32px;width:auto;
+  background:rgba(12,17,32,.92);
+  backdrop-filter:blur(24px);
+  border:1px solid var(--border2);
+  border-radius:100px;
+  box-shadow:0 8px 32px rgba(0,0,0,.4);
+  white-space:nowrap;
+  /* ensure both logo + links sit on the same baseline */
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+}
+nav.dock .nLogo{
+  margin-right:28px;
+}
+.nLogo{
+  font-family:var(--mono);font-size:11px;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--txt2);text-decoration:none;
+  transition:color .3s;
+  line-height:1;
+  vertical-align:middle;
+}
+.nLogo:hover{color:var(--txt)}
+.nLinks{
+  display:flex;gap:36px;list-style:none;
+  margin:0;padding:0;
+  align-items:center;
+}
+nav.dock .nLinks{gap:28px}
+.nLinks li{
+  display:flex;align-items:center;margin:0;padding:0;
+}
+.nLinks a{
+  font-family:var(--mono);font-size:11px;
+  letter-spacing:.13em;text-transform:uppercase;
+  color:var(--txt2);text-decoration:none;
+  transition:color .3s;font-weight:400;
+  line-height:1;
+  vertical-align:middle;
+}
+.nLinks a:hover{color:var(--txt)}
+.nLinks a.nav-active{color:var(--c)}
+.nCmd{
+  font-family:var(--mono);font-size:11px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--txt3);background:none;border:none;cursor:none;
+  transition:color .3s;padding:0;font-weight:400;
+}
+.nCmd:hover{color:var(--c)}
