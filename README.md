@@ -1,7 +1,8 @@
 # Shreya Chowdhury — Portfolio
 
-Personal portfolio website for Shreya Chowdhury, Creative Engineer.  
-Built with vanilla HTML, CSS, and JavaScript. Bundled with Vite.
+Personal portfolio website for Shreya Chowdhury. 
+Built with vanilla HTML, CSS, and JavaScript. 
+Bundled with Vite.
 
 **Live:** [shreyachowdhury.onrender.com](https://shreyachowdhury.onrender.com) *(update after deployment)*
 
